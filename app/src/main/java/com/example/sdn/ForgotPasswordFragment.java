@@ -1,9 +1,11 @@
 package com.example.sdn;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -97,5 +99,11 @@ public class ForgotPasswordFragment extends Fragment {
                 });
             }
         });
+    }
+
+    public void gobackLogin(View view) {
+        FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.FrameLayout,new LoginFragment());
+        ft.commit();
     }
 }
