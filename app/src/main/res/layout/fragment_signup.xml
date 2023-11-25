@@ -14,12 +14,12 @@
             android:id="@+id/etUsernameS"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="180dp"
+            android:layout_marginTop="260dp"
             android:ems="10"
             android:hint="UserName"
             android:inputType="textEmailAddress"
+            android:textSize="25sp"
             app:layout_constraintEnd_toEndOf="@+id/etPasswordS"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/etPasswordS"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -31,8 +31,8 @@
             android:ems="10"
             android:hint="Password"
             android:inputType="textPassword"
+            android:textSize="25sp"
             app:layout_constraintEnd_toEndOf="@+id/btSignup"
-            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="@+id/btSignup"
             app:layout_constraintTop_toBottomOf="@+id/etUsernameS" />
 
