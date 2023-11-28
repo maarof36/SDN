@@ -129,14 +129,13 @@ public class LoginFragment extends Fragment {
 
     private void gotoForgotPasswordFragment(){
         FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.FrameLayout,new ForgotPasswordFragment());
+        ft.replace(R.id.frameLayout,new ForgotPasswordFragment());
         ft.commit();
     }
 
     private void gotoSignUpFragment() {
         FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.FrameLayout ,new SignupFragment());
+        ft.replace(R.id.frameLayout ,new SignupFragment());
         ft.commit();
     }
-
 }

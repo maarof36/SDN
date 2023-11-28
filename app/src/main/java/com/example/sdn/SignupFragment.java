@@ -26,7 +26,7 @@ public class SignupFragment extends Fragment {
 
     private EditText etUsernameS, etPasswordS;
 
-    private Button btSignUp;
+    private Button  btBack , btSignUp;
     private FierbaseServices fbs;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -82,6 +82,13 @@ public class SignupFragment extends Fragment {
         fbs = FierbaseServices.getInstance();
         etUsernameS = getView().findViewById(R.id.etUsernameS);
         etPasswordS = getView().findViewById(R.id.etPasswordS);
+        btBack = getView().findViewById(R.id.btStoL);
+        btBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                BackFStoL();
+            }
+        });
         btSignUp = getView().findViewById(R.id.btSignup);
         btSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,11 +116,14 @@ public class SignupFragment extends Fragment {
         });
     }
 
-    public void backLogin(View view) {
+    private void BackFStoL() {
         FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.FrameLayout,new LoginFragment());
+        ft.replace(R.id.frameLayout ,new LoginFragment());
         ft.commit();
+
     }
+
+
 }
 
 

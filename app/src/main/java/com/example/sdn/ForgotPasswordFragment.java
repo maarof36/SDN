@@ -24,7 +24,7 @@ import com.google.android.gms.tasks.Task;
  */
 public class ForgotPasswordFragment extends Fragment {
     private EditText etmail;
-    private Button etreast;
+    private Button etreast , btBack;
     private FierbaseServices fbs;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -81,6 +81,14 @@ public class ForgotPasswordFragment extends Fragment {
         super.onStart();
         fbs = FierbaseServices.getInstance();
         etmail = getView().findViewById(R.id.etEmail22);
+        btBack =getView().findViewById(R.id.btFtoL);
+        btBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                GoFFtoL();
+            }
+        });
+        etreast = getView().findViewById(R.id.btResat);
         etreast.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -101,9 +109,10 @@ public class ForgotPasswordFragment extends Fragment {
         });
     }
 
-    public void gobackLogin(View view) {
+    private void GoFFtoL() {
         FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.FrameLayout,new LoginFragment());
+        ft.replace(R.id.frameLayout,new LoginFragment());
         ft.commit();
     }
+
 }
