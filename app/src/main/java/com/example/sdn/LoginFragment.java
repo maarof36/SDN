@@ -119,6 +119,7 @@ public class LoginFragment extends Fragment {
                             gotoTrackingBudget();
 
                         } else {
+                            Toast.makeText(getActivity(), "Check your info", Toast.LENGTH_SHORT).show();
 
                         }
                     }
