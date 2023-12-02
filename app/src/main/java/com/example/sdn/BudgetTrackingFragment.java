@@ -71,19 +71,31 @@ public class BudgetTrackingFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        ProfileBt = getView().findViewById(R.id.FABtP);
+        ProfileBt = getView().findViewById(R.id.FABtoProfile);
         ProfileBt.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                gotoProfile();
-
+            public void onClick(View v) {
+                gotoprofile();
             }
         });
-    }
+        ListBt = getView().findViewById(R.id.FABtoInfo);
+        ListBt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gotoinfo();
+            }
+        });
+}
 
-    private void gotoProfile() {
+    private void gotoprofile() {
         FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.frameLayout,new ProfileFragment());
         ft.commit();
     }
-}
+
+    private void gotoinfo() {
+        FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.frameLayout,new InfoFragment());
+        ft.commit();
+    }
+    }

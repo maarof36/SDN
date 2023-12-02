@@ -1,15 +1,19 @@
 package com.example.sdn;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -19,8 +23,12 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
  * create an instance of this fragment.
  */
 public class ProfileFragment extends Fragment {
-   private FloatingActionButton fbtC;
-   private Button Back;
+   private FloatingActionButton fbtC , Back;
+   private ImageView ProfilePic;
+
+   private int selectP=200;
+
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -72,10 +80,12 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+
         Back = getView().findViewById(R.id.btBtoBudget);
         Back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 gotoBudget();
             }
         });
@@ -85,11 +95,17 @@ public class ProfileFragment extends Fragment {
         fbtC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent i = new Intent();
+                i.setType("image/*");
+                i.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(Intent.createChooser(i,"select pic"),selectP);
+            }
+            public void onActivityResult(int requestCode,int resultCode,Intent Data){
 
             }
         });
+        ProfilePic = getView().findViewById(R.id.imageView5);
     }
-
     private void gotoBudget() {
         FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.frameLayout,new BudgetTrackingFragment());
