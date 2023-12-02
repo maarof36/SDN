@@ -3,10 +3,14 @@ package com.example.sdn;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +18,8 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class BudgetTrackingFragment extends Fragment {
+    private FloatingActionButton ProfileBt ,ListBt;
+    private Button goBt;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -60,5 +66,24 @@ public class BudgetTrackingFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_budget_tracking, container, false);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        ProfileBt = getView().findViewById(R.id.FABtP);
+        ProfileBt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                gotoProfile();
+
+            }
+        });
+    }
+
+    private void gotoProfile() {
+        FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.frameLayout,new ProfileFragment());
+        ft.commit();
     }
 }

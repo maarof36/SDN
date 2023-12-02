@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     }
     private void gotoLoginFragment() {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.frameLayout,new LoginFragment());
+        ft.replace(R.id.frameLayout,new ProfileFragment());
         ft.commit();
     }
 }
