@@ -14,12 +14,13 @@
             android:id="@+id/etUsernameS"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="260dp"
+            android:layout_marginTop="172dp"
             android:ems="10"
             android:hint="UserName"
             android:inputType="textEmailAddress"
             android:textSize="25sp"
             app:layout_constraintEnd_toEndOf="@+id/etPasswordS"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/etPasswordS"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -27,12 +28,13 @@
             android:id="@+id/etPasswordS"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="100dp"
             android:ems="10"
             android:hint="Password"
             android:inputType="textPassword"
             android:textSize="25sp"
             app:layout_constraintEnd_toEndOf="@+id/btSignup"
+            app:layout_constraintHorizontal_bias="0.504"
             app:layout_constraintStart_toStartOf="@+id/btSignup"
             app:layout_constraintTop_toBottomOf="@+id/etUsernameS" />
 
@@ -40,7 +42,7 @@
             android:id="@+id/btSignup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="140"
             android:text="SignUp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
