@@ -89,22 +89,30 @@ public class ProfileFragment extends Fragment {
                 gotoBudget();
             }
         });
-
+        ProfilePic = getView().findViewById(R.id.imageView5);
         fbtC =getView().findViewById(R.id.fbtCamera);
 
         fbtC.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 Intent i = new Intent();
                 i.setType("image/*");
                 i.setAction(Intent.ACTION_GET_CONTENT);
                 startActivityForResult(Intent.createChooser(i,"select pic"),selectP);
             }
-            public void onActivityResult(int requestCode,int resultCode,Intent Data){
-
+            public void onActivityResult(int requestCode,int resultCode,Intent data){
+                ProfileFragment.super.onActivityResult(requestCode,resultCode,data);
+                if(resultCode == -1){
+                    if(resultCode == selectP){
+                        Uri selectedImageUri =data.getData();
+                        if(null!= selectedImageUri){
+                            ProfilePic.setImageURI(selectedImageUri);
+                        }
+                    }
+                }
             }
         });
-        ProfilePic = getView().findViewById(R.id.imageView5);
+
     }
     private void gotoBudget() {
         FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
