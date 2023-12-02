@@ -72,6 +72,13 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+        Back = getView().findViewById(R.id.btBtoBudget);
+        Back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gotoBudget();
+            }
+        });
 
         fbtC =getView().findViewById(R.id.fbtCamera);
 
@@ -81,5 +88,11 @@ public class ProfileFragment extends Fragment {
 
             }
         });
+    }
+
+    private void gotoBudget() {
+        FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.frameLayout,new BudgetTrackingFragment());
+        ft.commit();
     }
 }
