@@ -100,16 +100,10 @@ public class ProfileFragment extends Fragment {
                 i.setAction(Intent.ACTION_GET_CONTENT);
                 startActivityForResult(Intent.createChooser(i,"select pic"),selectP);
             }
-            public void onActivityResult(int requestCode,int resultCode,Intent data){
+            public void onActivityResult(int requestCode , int resultCode, @Nullable Intent data){
                 ProfileFragment.super.onActivityResult(requestCode,resultCode,data);
-                if(resultCode == -1){
-                    if(resultCode == selectP){
-                        Uri selectedImageUri =data.getData();
-                        if(null!= selectedImageUri){
-                            ProfilePic.setImageURI(selectedImageUri);
-                        }
-                    }
-                }
+                Uri uri = data.getData();
+                ProfilePic.setImageURI(uri);
             }
         });
 
