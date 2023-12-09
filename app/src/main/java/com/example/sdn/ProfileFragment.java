@@ -25,8 +25,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 public class ProfileFragment extends Fragment {
    private FloatingActionButton fbtC , Back;
    private ImageView ProfilePic;
-
-   private int selectP=200;
+    private Utils utils;
+    private static final int GALLERY_REQUEST_CODE = 123;
 
 
 
@@ -94,20 +94,28 @@ public class ProfileFragment extends Fragment {
 
         fbtC.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Intent i = new Intent();
-                i.setType("image/*");
-                i.setAction(Intent.ACTION_GET_CONTENT);
-                startActivityForResult(Intent.createChooser(i,"select pic"),selectP);
-            }
-            public void onActivityResult(int requestCode , int resultCode, @Nullable Intent data){
-                ProfileFragment.super.onActivityResult(requestCode,resultCode,data);
-                Uri uri = data.getData();
-                ProfilePic.setImageURI(uri);
+            public void onClick(View v) {
+                openGallery();
             }
         });
 
     }
+
+    private void openGallery() {
+        Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(galleryIntent, GALLERY_REQUEST_CODE);
+    }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == GALLERY_REQUEST_CODE && resultCode == getActivity().RESULT_OK && data != null) {
+            Uri selectedImageUri = data.getData();
+            ProfilePic.setImageURI(selectedImageUri);
+            utils.uploadImage(getActivity(), selectedImageUri);
+        }
+    }
+
     private void gotoBudget() {
         FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.frameLayout,new BudgetTrackingFragment());
