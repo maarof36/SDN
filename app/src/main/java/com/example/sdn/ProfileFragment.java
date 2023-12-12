@@ -27,6 +27,7 @@ public class ProfileFragment extends Fragment {
    private ImageView ProfilePic;
     private Utils utils;
     private static final int GALLERY_REQUEST_CODE = 123;
+    private FierbaseServices fbs ;
 
 
 
@@ -80,6 +81,7 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+        init();
 
         Back = getView().findViewById(R.id.btBtoBudget);
         Back.setOnClickListener(new View.OnClickListener() {
@@ -99,6 +101,11 @@ public class ProfileFragment extends Fragment {
             }
         });
 
+    }
+
+    private void init() {
+        fbs=FierbaseServices.getInstance();
+        utils = Utils.getInstance();
     }
 
     private void openGallery() {
