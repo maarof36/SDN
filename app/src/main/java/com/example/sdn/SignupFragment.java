@@ -24,7 +24,7 @@ import com.google.firebase.auth.AuthResult;
  */
 public class SignupFragment extends Fragment {
 
-    private EditText etUsernameS, etPasswordS;
+    private EditText etUsernameS, etPasswordS,etEmailS, etAddresS;
 
     private Button  btBack , btSignUp;
     private FierbaseServices fbs;
@@ -82,6 +82,8 @@ public class SignupFragment extends Fragment {
         fbs = FierbaseServices.getInstance();
         etUsernameS = getView().findViewById(R.id.etUsernameS);
         etPasswordS = getView().findViewById(R.id.etPasswordS);
+        etEmailS = getView().findViewById(R.id.etEmail);
+        etAddresS = getView().findViewById(R.id.etAddres);
         btBack = getView().findViewById(R.id.btStoL);
         btBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,7 +98,10 @@ public class SignupFragment extends Fragment {
                 // Check
                 String username = etUsernameS.getText().toString();
                 String password = etPasswordS.getText().toString();
-                if (username.trim().isEmpty() && password.trim().isEmpty()) {
+                String email = etEmailS.getText().toString();
+                String addres = etAddresS.getText().toString();
+
+                if (username.trim().isEmpty() || password.trim().isEmpty()||email.isEmpty() || addres.isEmpty()) {
                     Toast.makeText(getActivity(), "something is missing", Toast.LENGTH_SHORT).show();
                     return;
                 }

@@ -14,7 +14,7 @@
             android:id="@+id/etUsernameS"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="172dp"
+            android:layout_marginTop="152dp"
             android:ems="10"
             android:hint="UserName"
             android:inputType="textEmailAddress"
@@ -28,13 +28,13 @@
             android:id="@+id/etPasswordS"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="20dp"
             android:ems="10"
             android:hint="Password"
             android:inputType="textPassword"
             android:textSize="25sp"
             app:layout_constraintEnd_toEndOf="@+id/btSignup"
-            app:layout_constraintHorizontal_bias="0.504"
+            app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="@+id/btSignup"
             app:layout_constraintTop_toBottomOf="@+id/etUsernameS" />
 
@@ -42,22 +42,51 @@
             android:id="@+id/btSignup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="140dp"
+            android:layout_marginTop="224dp"
             android:text="SignUp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etPasswordS" />
 
         <Button
             android:id="@+id/btStoL"
-            android:onClick="backLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="14dp"
             android:layout_marginTop="13dp"
+            android:onClick="backLogin"
             android:text="Back"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="96dp"
+            android:ems="10"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="@+id/btSignup"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="@+id/btSignup"
+            app:layout_constraintTop_toBottomOf="@+id/etUsernameS" />
+
+        <EditText
+            android:id="@+id/etAddres"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="172dp"
+            android:ems="10"
+            android:hint="Addres"
+            android:inputType="textPostalAddress"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="@+id/btSignup"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="@+id/btSignup"
+            app:layout_constraintTop_toBottomOf="@+id/etUsernameS" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

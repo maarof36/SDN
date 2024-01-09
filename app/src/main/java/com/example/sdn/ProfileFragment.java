@@ -14,8 +14,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.io.FileReader;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -27,7 +30,9 @@ public class ProfileFragment extends Fragment {
    private ImageView ProfilePic;
     private Utils utils;
     private static final int GALLERY_REQUEST_CODE = 123;
-    private FierbaseServices fbs ;
+    private FierbaseServices fbs;
+    private TextView UserName, Email,Addres;
+    private boolean flagAlreadyFilled = false;
 
 
 
@@ -82,11 +87,15 @@ public class ProfileFragment extends Fragment {
     public void onStart() {
         super.onStart();
         init();
+        fbs = FierbaseServices.getInstance();
+        UserName=getView().findViewById(R.id.textView2);
+        Email=getView().findViewById(R.id.textView4);
+        Addres=getView().findViewById(R.id.textView5);
 
         Back = getView().findViewById(R.id.btBtoBudget);
         Back.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
 
                 gotoBudget();
             }
@@ -100,12 +109,28 @@ public class ProfileFragment extends Fragment {
                 openGallery();
             }
         });
+        fillUserData();
+        flagAlreadyFilled = true;
 
     }
 
     private void init() {
         fbs=FierbaseServices.getInstance();
         utils = Utils.getInstance();
+    }
+    private void fillUserData() {
+        if (flagAlreadyFilled)
+            return;
+        User current = fbs.getCurrentUser();
+        if (current != null)
+        {
+            UserName.setText(current.getAddress());
+            Email.setText(current.getPhone());
+            if (current.getPhoto() != null && !current.getPhoto().isEmpty()) {
+                Picasso.get().load(current.getPhoto()).into(ProfilePic);
+                fbs.setSelectedImageURL(Uri.parse(current.getPhoto()));
+            }
+        }
     }
 
     private void openGallery() {
