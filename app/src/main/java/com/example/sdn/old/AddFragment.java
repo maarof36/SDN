@@ -1,4 +1,4 @@
-package com.example.sdn;
+package com.example.sdn.old;
 
 import android.os.Bundle;
 
@@ -12,9 +12,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.sdn.data.FierbaseServices;
+import com.example.sdn.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.common.base.MoreObjects;
 import com.google.firebase.firestore.DocumentReference;
 
 /**

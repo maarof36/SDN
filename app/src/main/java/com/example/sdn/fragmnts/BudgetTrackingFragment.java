@@ -1,4 +1,4 @@
-package com.example.sdn;
+package com.example.sdn.fragmnts;
 
 import android.os.Bundle;
 
@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.sdn.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 /**

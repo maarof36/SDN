@@ -1,4 +1,4 @@
-package com.example.sdn;
+package com.example.sdn.data;
 
 import android.os.Parcel;
 
@@ -9,7 +9,7 @@ public class User {
     private String email;
     private String address;
     private String photo;
-    private ArrayList<String> favorites;
+    private ArrayList<Expense> expenses;
 
     public User() {
     }
@@ -20,7 +20,7 @@ public class User {
         this.email = phone;
         this.address = address;
         this.photo = photo;
-        this.favorites = new ArrayList<>();
+        this.expenses = new ArrayList<>();
     }
 
     public User(Parcel in) {
@@ -57,12 +57,12 @@ public class User {
         this.photo = photo;
     }
 
-    public ArrayList<String> getFavorites() {
-        return favorites;
+    public ArrayList<Expense> getFavorites() {
+        return expenses;
     }
 
-    public void setFavorites(ArrayList<String> favourits) {
-        this.favorites = favourits;
+    public void setFavorites(ArrayList<Expense> expenses) {
+        this.expenses = expenses;
     }
 
     @Override

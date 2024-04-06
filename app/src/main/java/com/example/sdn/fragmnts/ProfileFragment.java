@@ -1,10 +1,9 @@
-package com.example.sdn;
+package com.example.sdn.fragmnts;
 
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -12,14 +11,15 @@ import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.sdn.R;
+import com.example.sdn.Utils;
+import com.example.sdn.data.FierbaseServices;
+import com.example.sdn.data.User;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.squareup.picasso.Picasso;
-
-import java.io.FileReader;
 
 /**
  * A simple {@link Fragment} subclass.

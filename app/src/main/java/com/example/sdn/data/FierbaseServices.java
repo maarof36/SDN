@@ -1,8 +1,7 @@
-package com.example.sdn;
+package com.example.sdn.data;
 
 import android.net.Uri;
 
-import com.google.firebase.Firebase;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -10,8 +9,6 @@ import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FirebaseStorage;
-
-import java.util.ArrayList;
 
 public class FierbaseServices {
      private static FierbaseServices instance;

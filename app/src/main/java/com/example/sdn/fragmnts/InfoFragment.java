@@ -1,14 +1,20 @@
-package com.example.sdn;
+package com.example.sdn.fragmnts;
 
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SearchView;
 
+import com.example.sdn.R;
+import com.example.sdn.data.FierbaseServices;
+import com.example.sdn.ExpenseAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 /**
@@ -18,6 +24,11 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
  */
 public class InfoFragment extends Fragment {
     private FloatingActionButton back;
+    private RecyclerView recyclerView;
+    private FierbaseServices fbs;
+    private SearchView srchView;
+    private ExpenseAdapter myAdapter;
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -69,6 +80,13 @@ public class InfoFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+        call();
+    }
+        private void call() {
+        recyclerView = getView().findViewById(R.id.pList);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        fbs = FierbaseServices.getInstance();
         back = getView().findViewById(R.id.FABtoBudget2);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,6 +95,9 @@ public class InfoFragment extends Fragment {
             }
         });
     }
+
+
+
 
     private void backtoBudget() {
         FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
