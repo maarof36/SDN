@@ -10,20 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <EditText
-            android:id="@+id/editTextText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="150dp"
-            android:ems="10"
-            android:hint="How much did you spent"
-            android:inputType="text"
-            android:textSize="25sp"
-            app:layout_constraintEnd_toEndOf="@+id/textView"
-            app:layout_constraintHorizontal_bias="0.506"
-            app:layout_constraintStart_toStartOf="@+id/textView"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
-
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
@@ -36,15 +22,15 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/Go"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="140dp"
+            android:layout_marginBottom="45dp"
             android:text="Go"
-            app:layout_constraintEnd_toEndOf="@+id/editTextText"
-            app:layout_constraintHorizontal_bias="0.495"
-            app:layout_constraintStart_toStartOf="@+id/editTextText"
-            app:layout_constraintTop_toBottomOf="@+id/editTextText" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/S" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/FABtoInfo"
@@ -52,8 +38,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
+            android:layout_marginBottom="317dp"
             android:clickable="true"
             android:src="@drawable/baseline_list_24"
+            app:layout_constraintBottom_toTopOf="@+id/S"
             app:layout_constraintEnd_toStartOf="@+id/textView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -67,6 +55,20 @@
             android:clickable="true"
             android:src="@drawable/baseline_person_2_24"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/S"
+            android:layout_width="250dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="389dp"
+            android:layout_marginBottom="186dp"
+            android:ems="10"
+            android:hint="How much did you pay?"
+            android:inputType="numberSigned"
+            app:layout_constraintBottom_toTopOf="@+id/Go"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

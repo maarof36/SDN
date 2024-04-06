@@ -4,13 +4,18 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.fragment.app.ListFragment;
 
+import android.util.Dumpable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.sdn.R;
+import com.example.sdn.data.Expense;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 /**
@@ -21,6 +26,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 public class BudgetTrackingFragment extends Fragment {
     private FloatingActionButton ProfileBt ,ListBt;
     private Button goBt;
+    private TextView spent;
+    private Expense expense;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -72,6 +79,19 @@ public class BudgetTrackingFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+        spent = getView().findViewById(R.id.S);
+        goBt = getView().findViewById(R.id.Go);
+        goBt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (spent!=null) {
+                    expense.setPrice(Double.parseDouble(spent.getText().toString()));
+                    gotoChoose();
+                }
+            }
+
+
+        });
         ProfileBt = getView().findViewById(R.id.FABtoProfile);
         ProfileBt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,20 +103,24 @@ public class BudgetTrackingFragment extends Fragment {
         ListBt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                gotoinfo();
+                gotoList();
             }
         });
 }
-
+    private void gotoChoose() {
+        FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.frameLayout,new ChooesesFragment());
+        ft.commit();
+    }
     private void gotoprofile() {
         FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.frameLayout,new ProfileFragment());
         ft.commit();
     }
 
-    private void gotoinfo() {
+    private void gotoList() {
         FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.frameLayout,new InfoFragment());
+        ft.replace(R.id.frameLayout,new ListFragment());
         ft.commit();
     }
     }

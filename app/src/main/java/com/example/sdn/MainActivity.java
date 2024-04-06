@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 
 import com.example.sdn.fragmnts.BudgetTrackingFragment;
+import com.example.sdn.fragmnts.ChooesesFragment;
 import com.example.sdn.usermngmnt.LoginFragment;
 
 public class MainActivity extends AppCompatActivity {
