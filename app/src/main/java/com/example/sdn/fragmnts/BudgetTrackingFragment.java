@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.sdn.R;
 import com.example.sdn.data.Expense;
@@ -88,6 +89,7 @@ public class BudgetTrackingFragment extends Fragment {
                     expense.setPrice(Double.parseDouble(spent.getText().toString()));
                     gotoChoose();
                 }
+                else Toast.makeText(getActivity(), "enter your expense", Toast.LENGTH_SHORT).show();
             }
 
 

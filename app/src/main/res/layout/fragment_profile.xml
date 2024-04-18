@@ -53,31 +53,35 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="80dp"
             android:text="TextView"
-            app:layout_constraintBottom_toTopOf="@+id/textView4"
-            tools:layout_editor_absoluteX="172dp" />
+            android:textSize="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/email"
+            tools:layout_editor_absoluteX="164dp" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="80dp"
             android:text="TextView"
-            app:layout_constraintBottom_toTopOf="@+id/textView5"
-            app:layout_constraintStart_toStartOf="@+id/textView2" />
+            android:textSize="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/addres"
+            app:layout_constraintEnd_toEndOf="@+id/name"
+            app:layout_constraintStart_toStartOf="@+id/name" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/addres"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
             android:text="TextView"
-            app:layout_constraintStart_toStartOf="@+id/textView4"
-            tools:layout_editor_absoluteY="611dp" />
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="@+id/email"
+            app:layout_constraintStart_toStartOf="@+id/email"
+            tools:layout_editor_absoluteY="604dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

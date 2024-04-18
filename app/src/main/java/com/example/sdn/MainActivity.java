@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         ft.commit();
     }
 
-    private void gotoTrackingFragment() {
+      private void gotoTrackingFragment() {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.frameLayout,new BudgetTrackingFragment());
         ft.commit();

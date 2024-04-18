@@ -1,11 +1,14 @@
 package com.example.sdn.usermngmnt;
 
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.provider.ContactsContract;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,11 +16,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.sdn.Utils;
 import com.example.sdn.data.FierbaseServices;
 import com.example.sdn.R;
+import com.example.sdn.data.User;
+import com.example.sdn.fragmnts.BudgetTrackingFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
+import com.google.firebase.firestore.DocumentReference;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -26,10 +35,11 @@ import com.google.firebase.auth.AuthResult;
  */
 public class SignupFragment extends Fragment {
 
-    private EditText etUsernameS, etPasswordS,etEmailS, etAddresS;
+    private EditText etUsernameS, etPasswordS, etEmailS, etAddresS;
 
-    private Button  btBack , btSignUp;
+    private Button btBack, btSignUp;
     private FierbaseServices fbs;
+    private Utils msg;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -96,40 +106,89 @@ public class SignupFragment extends Fragment {
         btSignUp = getView().findViewById(R.id.btSignup);
         btSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                // Check
+            public void onClick(View view) {
+                //Data validation
                 String username = etUsernameS.getText().toString();
                 String password = etPasswordS.getText().toString();
                 String email = etEmailS.getText().toString();
                 String addres = etAddresS.getText().toString();
-
-                if (username.trim().isEmpty() || password.trim().isEmpty()||email.isEmpty() || addres.isEmpty()) {
-                    Toast.makeText(getActivity(), "something is missing", Toast.LENGTH_SHORT).show();
+                if (username.trim().isEmpty() || password.trim().isEmpty() || email.trim().isEmpty() ||
+                        addres.trim().isEmpty()) {
+                    Toast.makeText(getActivity(), "some fields are empty", Toast.LENGTH_SHORT).show();
                     return;
+
                 }
-                // signup
-                fbs.getAuth().createUserWithEmailAndPassword(username, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
+//                if (!password.equals(confirmPassword)) {
+//                    msg.showMessageDialog(getActivity(), "Password are not identical!");
+//                    return;
+//                }
 
-                        } else {
+//                if(fbs.getSelectedImageURL() == null){
+//                    msg.showMessageDialog(getActivity(), "Image are Empty !");
+//
+//                }
 
-                        }
-                    }
 
-                });
+//                if (fbs.getSelectedImageURL() == null)
+//                {
+//                    User user = new User(firstname, lastname, username, phone, address, "");
+//                }
+//                else {
+//                    User user = new User(firstname, lastname, username, phone, address, fbs.getSelectedImageURL().toString());
+//                }
+                //Signup procedure
+                Uri selectedImageUri = fbs.getSelectedImageURL();
+                String imageURL = "";
+                if (selectedImageUri != null) {
+                    imageURL = selectedImageUri.toString();
+                }
+                User user = new User(username, email, addres);
+
+                fbs.getAuth().createUserWithEmailAndPassword(username, password)
+                        .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
+
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+
+                                if (task.isSuccessful()) {
+                                    fbs.getFire().collection("users").add(user).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                        @Override
+                                        public void onSuccess(DocumentReference documentReference) {
+                                            gotoBudgetFragment();
+                                        }
+
+
+                                    }).addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            Log.e("SignupFragment: signupOnClick: ", e.getMessage());
+                                        }
+                                    });
+                                    // String firstName, String lastName, String username, String phone, String address, String photo) {
+                                    Toast.makeText(getActivity(), "you have succesfully signed up", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(getActivity(), "failed to sign up! check user or password", Toast.LENGTH_SHORT).show();
+
+                                }
+
+                            }
+                        });
+
+
             }
         });
     }
+        private void BackFStoL () {
+            FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.frameLayout, new LoginFragment());
+            ft.commit();
 
-    private void BackFStoL() {
-        FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.frameLayout ,new LoginFragment());
-        ft.commit();
-
-    }
-
+        }
+        private void gotoBudgetFragment () {
+            FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.frameLayout, new BudgetTrackingFragment());
+            ft.commit();
+        }
 
 }
 

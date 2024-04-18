@@ -11,7 +11,7 @@ public class User {
     private String photo;
     private ArrayList<Expense> expenses;
 
-    public User() {
+    public User(String username, String email, String addres) {
     }
 
     public User(String firstName, String lastName, String username, String phone, String address, String photo) {

@@ -89,9 +89,9 @@ public class ProfileFragment extends Fragment {
         super.onStart();
         init();
         fbs = FierbaseServices.getInstance();
-        UserName=getView().findViewById(R.id.textView2);
-        Email=getView().findViewById(R.id.textView4);
-        Addres=getView().findViewById(R.id.textView5);
+        UserName=getView().findViewById(R.id.name);
+        Email=getView().findViewById(R.id.email);
+        Addres=getView().findViewById(R.id.addres);
 
         Back = getView().findViewById(R.id.btBtoBudget);
         Back.setOnClickListener(new View.OnClickListener() {
