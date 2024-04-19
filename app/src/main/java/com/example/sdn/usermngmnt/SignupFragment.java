@@ -137,14 +137,14 @@ public class SignupFragment extends Fragment {
 //                    User user = new User(firstname, lastname, username, phone, address, fbs.getSelectedImageURL().toString());
 //                }
                 //Signup procedure
-                Uri selectedImageUri = fbs.getSelectedImageURL();
-                String imageURL = "";
-                if (selectedImageUri != null) {
-                    imageURL = selectedImageUri.toString();
-                }
+//                Uri selectedImageUri = fbs.getSelectedImageURL();
+//                String imageURL = "";
+//                    imageURL = selectedImageUri.toString();
+//                }
                 User user = new User(username, email, addres);
 
-                fbs.getAuth().createUserWithEmailAndPassword(username, password)
+
+                fbs.getAuth().createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
 
                             @Override
@@ -154,6 +154,7 @@ public class SignupFragment extends Fragment {
                                     fbs.getFire().collection("users").add(user).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                         @Override
                                         public void onSuccess(DocumentReference documentReference) {
+                                            Toast.makeText(getActivity(), "you have succesfully signed up", Toast.LENGTH_SHORT).show();
                                             gotoBudgetFragment();
                                         }
 
@@ -165,7 +166,7 @@ public class SignupFragment extends Fragment {
                                         }
                                     });
                                     // String firstName, String lastName, String username, String phone, String address, String photo) {
-                                    Toast.makeText(getActivity(), "you have succesfully signed up", Toast.LENGTH_SHORT).show();
+
                                 } else {
                                     Toast.makeText(getActivity(), "failed to sign up! check user or password", Toast.LENGTH_SHORT).show();
 

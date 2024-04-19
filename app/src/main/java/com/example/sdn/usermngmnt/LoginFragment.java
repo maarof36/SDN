@@ -108,14 +108,14 @@ public class LoginFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 // Check
-                String username = etUsernameL.getText().toString();
+                String email = etUsernameL.getText().toString();
                 String password = etPasswordL.getText().toString();
-                if (username.trim().isEmpty() && password.trim().isEmpty()) {
+                if (email.trim().isEmpty() && password.trim().isEmpty()) {
                     Toast.makeText(getActivity(), "something is missing", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 // signup
-                fbs.getAuth().signInWithEmailAndPassword(username, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                fbs.getAuth().signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
