@@ -6,18 +6,19 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.fragment.app.ListFragment;
 
-import android.util.Dumpable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.sdn.R;
 import com.example.sdn.data.Expense;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -28,7 +29,6 @@ public class BudgetTrackingFragment extends Fragment {
     private FloatingActionButton ProfileBt ,ListBt;
     private Button goBt;
     private TextView spent;
-    private Expense expense;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -86,8 +86,12 @@ public class BudgetTrackingFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (spent!=null) {
-                    expense.setPrice(Double.parseDouble(spent.getText().toString()));
-                    gotoChoose();
+                    Expense ex1 = new Expense();
+                    ex1.setPrice(Double.parseDouble(spent.getText().toString()));
+                    Date currentTime = Calendar.getInstance().getTime();
+                    Toast.makeText(getActivity(), "time"+currentTime, Toast.LENGTH_LONG).show();
+                    ex1.setPrice(Double.parseDouble(currentTime.toString()));
+                    gotoChoose(ex1);
                 }
                 else Toast.makeText(getActivity(), "enter your expense", Toast.LENGTH_SHORT).show();
             }
@@ -109,8 +113,12 @@ public class BudgetTrackingFragment extends Fragment {
             }
         });
 }
-    private void gotoChoose() {
+    private void gotoChoose(Expense ex ) {
         FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
+        ChooesesFragment cf = new ChooesesFragment();
+        Bundle b = new Bundle();
+        b.putParcelable("expense", ex);
+        cf.setArguments(b);
         ft.replace(R.id.frameLayout,new ChooesesFragment());
         ft.commit();
     }

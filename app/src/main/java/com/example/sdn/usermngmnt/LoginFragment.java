@@ -120,6 +120,7 @@ public class LoginFragment extends Fragment {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             gotoTrackingBudget();
+                            Toast.makeText(getActivity(), "Welcome", Toast.LENGTH_SHORT).show();
 
                         } else {
                             Toast.makeText(getActivity(), "Check your info", Toast.LENGTH_SHORT).show();
