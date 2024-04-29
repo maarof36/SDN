@@ -23,9 +23,9 @@ import java.time.LocalTime;
  * create an instance of this fragment.
  */
 public class ChooesesFragment extends Fragment {
-    private ImageButton h,c ,c2 , c3 ,f , p ;
+    private ImageButton h,c ,c2 , c3 ,f , p1 ;
     private FloatingActionButton back;
-    private Expense expense;
+
     private LocalTime now ;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -78,59 +78,57 @@ public class ChooesesFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+        Bundle ex = getArguments();
+        String t = ex.getString("Time");
+        Double p = ex.getDouble("price");
+        Expense ex1 = new Expense(p,null,t);
         now = LocalTime.now();
         h = getView().findViewById(R.id.House);
         h.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              expense.setType("House");
-              expense.setTime(now.toString());
-              gotoBudget();
+                ex1.setType("House");
+                gotoList(ex1);
             }
         });
         c = getView().findViewById(R.id.Car);
         c.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                expense.setType("Car");
-                expense.setTime(now.toString());
-                gotoBudget();
+                ex1.setType("Car");
+                gotoList(ex1);
             }
         });
         c2 = getView().findViewById(R.id.Communications);
         c2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                expense.setType("Communiations");
-                expense.setTime(now.toString());
-                gotoBudget();
+                ex1.setType("Communiations");
+                gotoList(ex1);
             }
         });
         c3 = getView().findViewById(R.id.Clothes);
         c3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                expense.setType("Clothes");
-                expense.setTime(now.toString());
-                gotoBudget();
+                ex1.setType("Clothes");
+                gotoList(ex1);
             }
         });
         f = getView().findViewById(R.id.Fixing);
         f.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                expense.setType("Fixing");
-                expense.setTime(now.toString());
-                gotoBudget();
+                ex1.setType("Fixing");
+                gotoList(ex1);
             }
         });
-        p = getView().findViewById(R.id.Phone);
-        p.setOnClickListener(new View.OnClickListener() {
+        p1 = getView().findViewById(R.id.Phone);
+        p1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                expense.setType("Phone");
-                expense.setTime(now.toString());
-                gotoBudget();
+                ex1.setType("Phone");
+                gotoList(ex1);
             }
         });
         back =getView().findViewById(R.id.Back);
@@ -141,11 +139,22 @@ public class ChooesesFragment extends Fragment {
             }
 
 
+
+
         });
+    }
+    private void gotoList(Expense ex) {
+        FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
+        ListFragment lf = new ListFragment();
+        Bundle b = new Bundle();
+        b.putParcelable("expense", ex);
+        lf.setArguments(b);
+        ft.replace(R.id.frameLayout,new ListFragment());
+        ft.commit();
     }
     private void gotoBudget() {
         FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.frameLayout,new ListFragment());
+        ft.replace(R.id.frameLayout,new BudgetTrackingFragment());
         ft.commit();
     }
 }
