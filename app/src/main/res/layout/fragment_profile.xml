@@ -12,13 +12,17 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/imageView5"
-            android:layout_width="250dp"
-            android:layout_height="250dp"
+            android:layout_width="230dp"
+            android:layout_height="0dp"
             android:layout_marginStart="80dp"
-            android:layout_marginTop="65dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginEnd="80dp"
+            android:layout_marginBottom="570dp"
             android:background="@color/blue"
             android:padding="5dp"
             android:src="@drawable/baseline_person_2_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:shapeAppearanceOverlay="@style/circular"
@@ -44,11 +48,15 @@
             android:id="@+id/btBtoBudget"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="345dp"
+            android:layout_marginBottom="825dp"
             android:clickable="true"
             android:src="@drawable/baseline_arrow_back_24"
             app:backgroundTint="#FEFEFE"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -56,32 +64,43 @@
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="80dp"
-            android:text="TextView"
-            android:textSize="20dp"
-            app:layout_constraintBottom_toTopOf="@+id/email"
-            tools:layout_editor_absoluteX="164dp" />
+            android:layout_marginStart="181dp"
+            android:layout_marginTop="114dp"
+            android:layout_marginEnd="173dp"
+            android:layout_marginBottom="437dp"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
         <TextView
             android:id="@+id/email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="80dp"
-            android:text="TextView"
-            android:textSize="20dp"
-            app:layout_constraintBottom_toTopOf="@+id/addres"
-            app:layout_constraintEnd_toEndOf="@+id/name"
-            app:layout_constraintStart_toStartOf="@+id/name" />
+            android:layout_marginStart="170dp"
+            android:layout_marginTop="75dp"
+            android:layout_marginEnd="160dp"
+            android:layout_marginBottom="331dp"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name" />
 
         <TextView
             android:id="@+id/addres"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
-            android:textSize="20dp"
-            app:layout_constraintEnd_toEndOf="@+id/email"
-            app:layout_constraintStart_toStartOf="@+id/email"
-            tools:layout_editor_absoluteY="604dp" />
+            android:layout_marginStart="170dp"
+            android:layout_marginTop="75dp"
+            android:layout_marginEnd="160dp"
+            android:layout_marginBottom="229dp"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/email" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

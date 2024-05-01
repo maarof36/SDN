@@ -2,20 +2,31 @@ package com.example.sdn.fragmnts;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.fragment.app.ListFragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.example.sdn.R;
 import com.example.sdn.data.Expense;
+import com.example.sdn.data.Expense2;
+import com.example.sdn.data.FierbaseServices;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.firestore.DocumentReference;
 
+import java.lang.reflect.Type;
+import java.sql.Time;
 import java.time.LocalTime;
+import java.util.UUID;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,8 +36,9 @@ import java.time.LocalTime;
 public class ChooesesFragment extends Fragment {
     private ImageButton h,c ,c2 , c3 ,f , p1 ;
     private FloatingActionButton back;
-
-    private LocalTime now ;
+    FierbaseServices fbs;
+    private Expense ex1 ;
+    private Expense2 expense2;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -79,16 +91,14 @@ public class ChooesesFragment extends Fragment {
     public void onStart() {
         super.onStart();
         Bundle ex = getArguments();
-        String t = ex.getString("Time");
-        Double p = ex.getDouble("price");
-        Expense ex1 = new Expense(p,null,t);
-        now = LocalTime.now();
+        if (ex != null) {
+            ex1 = ex.getParcelable("expense");}
         h = getView().findViewById(R.id.House);
         h.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ex1.setType("House");
-                gotoList(ex1);
+                gotoList();
             }
         });
         c = getView().findViewById(R.id.Car);
@@ -96,7 +106,7 @@ public class ChooesesFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 ex1.setType("Car");
-                gotoList(ex1);
+                gotoList();
             }
         });
         c2 = getView().findViewById(R.id.Communications);
@@ -104,7 +114,7 @@ public class ChooesesFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 ex1.setType("Communiations");
-                gotoList(ex1);
+                gotoList();
             }
         });
         c3 = getView().findViewById(R.id.Clothes);
@@ -112,7 +122,7 @@ public class ChooesesFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 ex1.setType("Clothes");
-                gotoList(ex1);
+                gotoList();
             }
         });
         f = getView().findViewById(R.id.Fixing);
@@ -120,7 +130,7 @@ public class ChooesesFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 ex1.setType("Fixing");
-                gotoList(ex1);
+                gotoList();
             }
         });
         p1 = getView().findViewById(R.id.Phone);
@@ -128,7 +138,8 @@ public class ChooesesFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 ex1.setType("Phone");
-                gotoList(ex1);
+                addToFirestore();
+                gotoList();
             }
         });
         back =getView().findViewById(R.id.Back);
@@ -143,12 +154,38 @@ public class ChooesesFragment extends Fragment {
 
         });
     }
-    private void gotoList(Expense ex) {
+
+    private void addToFirestore() {
+
+            String price1,type , time;
+//get data from screen
+
+        price1=ex1.getPrice().toString();
+        type=ex1.getType().toString();
+        time=ex1.getTime().toString();
+
+        expense2 = new Expense2(price1, type, time);
+
+        fbs.getFire().collection("expense").add(expense2)
+                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                        @Override
+                        public void onSuccess(DocumentReference documentReference) {
+                            Toast.makeText(getActivity(), "ADD Expense is Succesed ", Toast.LENGTH_SHORT).show();
+                            Log.e("addToFirestore() - add to collection: ", "Successful!");
+                            gotoList();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.e("addToFirestore() - add to collection: ", e.getMessage());
+                        }
+                    });
+
+
+    }
+
+    private void gotoList() {
         FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
-        ListFragment lf = new ListFragment();
-        Bundle b = new Bundle();
-        b.putParcelable("expense", ex);
-        lf.setArguments(b);
         ft.replace(R.id.frameLayout,new ListFragment());
         ft.commit();
     }

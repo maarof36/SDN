@@ -2,20 +2,30 @@ package com.example.sdn.fragmnts;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SearchView;
+import android.widget.Toast;
 
 import com.example.sdn.R;
+import com.example.sdn.data.Expense2;
 import com.example.sdn.data.FierbaseServices;
 import com.example.sdn.ExpenseAdapter;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -28,6 +38,7 @@ public class InfoFragment extends Fragment {
     private FierbaseServices fbs;
     private SearchView srchView;
     private ExpenseAdapter myAdapter;
+    private ArrayList<Expense2> ex;
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -82,11 +93,16 @@ public class InfoFragment extends Fragment {
         super.onStart();
         call();
     }
-        private void call() {
+
+    private void call() {
         recyclerView = getView().findViewById(R.id.pList);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         fbs = FierbaseServices.getInstance();
+        fbs.setUserChangeFlag(false);
+        ex = new ArrayList<>();
+        ex = getExpense();
+        myAdapter = new ExpenseAdapter(getActivity(), ex);
         back = getView().findViewById(R.id.FABtoBudget2);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,14 +110,58 @@ public class InfoFragment extends Fragment {
                 backtoBudget();
             }
         });
+        myAdapter.setOnItemClickListener(new ExpenseAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                String selectedItem = ex.get(position).getPrice();
+                Toast.makeText(getActivity(), "Clicked: " + selectedItem, Toast.LENGTH_SHORT).show();
+                Bundle args = new Bundle();
+                args.putParcelable("expense", ex.get(position)); // or use Parcelable for better performance
+                ChooesesFragment cd = new ChooesesFragment();
+                cd.setArguments(args);
+                FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+                ft.replace(R.id.frameLayout, cd);
+                ft.commit();
+            }
+        });
     }
-
-
 
 
     private void backtoBudget() {
-        FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.frameLayout,new BudgetTrackingFragment());
+        FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.frameLayout, new BudgetTrackingFragment());
         ft.commit();
     }
+
+    public ArrayList<Expense2> getExpense() {
+        ArrayList<Expense2> ex = new ArrayList<>();
+
+        try {
+            ex.clear();
+            fbs.getFire().collection("expense")
+                    .get()
+                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                            if (task.isSuccessful()) {
+                                for (QueryDocumentSnapshot document : task.getResult()) {
+                                    ex.add(document.toObject(Expense2.class));
+                                }
+
+                                ExpenseAdapter adapter = new ExpenseAdapter(getActivity(), ex);
+                                recyclerView.setAdapter(adapter);
+                                //addUserToCompany(companies, user);
+                            } else {
+                                //Log.e("AllRestActivity: readData()", "Error getting documents.", task.getException());
+                            }
+                        }
+                    });
+
+        } catch (Exception e) {
+            Log.e("getCompaniesMap(): ", e.getMessage());
+        }
+
+        return ex;
+    }
 }
+

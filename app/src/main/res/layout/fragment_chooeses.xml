@@ -34,7 +34,7 @@
             android:id="@+id/Communications"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="52dp"
+            android:layout_marginTop="55dp"
             android:src="@drawable/baseline_airport_shuttle_24"
             app:layout_constraintStart_toStartOf="@+id/House"
             app:layout_constraintTop_toBottomOf="@+id/House" />
@@ -43,7 +43,7 @@
             android:id="@+id/Clothes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="53dp"
+            android:layout_marginTop="55dp"
             android:src="@drawable/baseline_checkroom_24"
             app:layout_constraintStart_toStartOf="@+id/Car"
             app:layout_constraintTop_toBottomOf="@+id/Car" />
@@ -52,7 +52,7 @@
             android:id="@+id/Fixing"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="57dp"
+            android:layout_marginTop="55dp"
             android:src="@drawable/baseline_build_24"
             app:layout_constraintStart_toStartOf="@+id/Communications"
             app:layout_constraintTop_toBottomOf="@+id/Communications" />
@@ -61,7 +61,7 @@
             android:id="@+id/Phone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="57dp"
+            android:layout_marginTop="55dp"
             android:src="@drawable/baseline_call_24"
             app:layout_constraintStart_toStartOf="@+id/Clothes"
             app:layout_constraintTop_toBottomOf="@+id/Clothes" />
@@ -70,22 +70,30 @@
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="165dp"
+            android:layout_marginEnd="64dp"
+            android:layout_marginBottom="230dp"
             android:text="what did you pay for?"
             android:textSize="30dp"
+            app:layout_constraintBottom_toTopOf="@+id/House"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.727" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/Back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="14dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="345dp"
+            android:layout_marginBottom="34dp"
             android:clickable="true"
             android:src="@drawable/baseline_arrow_back_24"
+            app:layout_constraintBottom_toTopOf="@+id/textView6"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,15 +10,16 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sdn.data.Expense;
+import com.example.sdn.data.Expense2;
 
 import java.util.ArrayList;
 
 public class ExpenseAdapter extends RecyclerView.Adapter<ExpenseAdapter.MyViewHolder>{
     Context context;
-    ArrayList<Expense> xList;
+    ArrayList<Expense2> xList;
     private OnItemClickListener itemClickListener;
 
-    public ExpenseAdapter(Context context, ArrayList<Expense> xList) {
+    public ExpenseAdapter(Context context, ArrayList<Expense2> xList) {
         this.context = context;
         this.xList = xList;
     }
@@ -32,10 +33,10 @@ public class ExpenseAdapter extends RecyclerView.Adapter<ExpenseAdapter.MyViewHo
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder,int position){
-        Expense expense= xList.get(position);
+        Expense2 expense= xList.get(position);
 
 
-        holder.Price.setText(expense.getPrice()+" ₪");
+        holder.Price.setText(expense.getPrice()+"₪");
         holder.Type.setText(expense.getType());
         holder.Time.setText(expense.getTime());
 

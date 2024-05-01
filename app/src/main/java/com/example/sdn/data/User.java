@@ -23,8 +23,6 @@ public class User {
         this.expenses = new ArrayList<>();
     }
 
-    public User(Parcel in) {
-    }
     public String getUsername() {
         return username;
     }
@@ -33,12 +31,12 @@ public class User {
         this.username = username;
     }
 
-    public String getPhone() {
+    public String getEmail() {
         return email;
     }
 
-    public void setPhone(String phone) {
-        this.email = phone;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getAddress() {
@@ -57,11 +55,11 @@ public class User {
         this.photo = photo;
     }
 
-    public ArrayList<Expense> getFavorites() {
+    public ArrayList<Expense> getExpenses() {
         return expenses;
     }
 
-    public void setFavorites(ArrayList<Expense> expenses) {
+    public void setExpenses(ArrayList<Expense> expenses) {
         this.expenses = expenses;
     }
 

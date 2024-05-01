@@ -125,8 +125,9 @@ public class ProfileFragment extends Fragment {
         User current = fbs.getCurrentUser();
         if (current != null)
         {
-            UserName.setText(current.getAddress());
-            Email.setText(current.getPhone());
+            UserName.setText(current.getUsername());
+            Email.setText(current.getEmail());
+            Addres.setText(current.getAddress());
             if (current.getPhoto() != null && !current.getPhoto().isEmpty()) {
                 Picasso.get().load(current.getPhoto()).into(ProfilePic);
                 fbs.setSelectedImageURL(Uri.parse(current.getPhoto()));

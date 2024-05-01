@@ -10,6 +10,8 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FirebaseStorage;
 
+import java.security.PrivateKey;
+
 public class FierbaseServices {
      private static FierbaseServices instance;
     private Uri selectedImageURL;
@@ -17,6 +19,7 @@ public class FierbaseServices {
      private FirebaseAuth auth;
      private FirebaseFirestore fire;
      private FirebaseStorage storage;
+     private boolean userChangeFlag;
     public Uri getSelectedImageURL() {
         return selectedImageURL;
     }
@@ -49,7 +52,10 @@ public class FierbaseServices {
          }
          return instance;
      }
-    public User getCurrentUser()
+    public void setUserChangeFlag(boolean userChangeFlag) {
+        this.userChangeFlag = userChangeFlag;
+    }
+     public User getCurrentUser()
     {
         return this.currentUser;
     }
@@ -68,7 +74,7 @@ public class FierbaseServices {
         String addressFieldName = "address";
         String addressValue = user.getAddress();
         String emailFieldName = "email";
-        String emailValue = user.getPhone();
+        String emailValue = user.getEmail();
         String photoFieldName = "photo";
         String photoValue = user.getPhoto();
 

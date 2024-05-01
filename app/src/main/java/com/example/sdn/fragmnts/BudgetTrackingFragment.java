@@ -89,7 +89,6 @@ public class BudgetTrackingFragment extends Fragment {
                     Expense ex1 = new Expense();
                     ex1.setPrice(Double.parseDouble(spent.getText().toString()));
                     Date currentTime = Calendar.getInstance().getTime();
-                    Toast.makeText(getActivity(), "time"+currentTime, Toast.LENGTH_LONG).show();
                     ex1.setPrice(Double.parseDouble(currentTime.toString()));
                     gotoChoose(ex1);
                 }

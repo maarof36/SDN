@@ -14,9 +14,13 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="172dp"
+            android:layout_marginStart="97dp"
+            android:layout_marginTop="165dp"
+            android:layout_marginEnd="97dp"
+            android:layout_marginBottom="230dp"
             android:text="Tracking Budget"
             android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/S"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -24,25 +28,25 @@
         <Button
             android:id="@+id/Go"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="45dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="161dp"
+            android:layout_marginEnd="162dp"
+            android:layout_marginBottom="110dp"
             android:text="Go"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/S" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/FABtoInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="317dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="825dp"
             android:clickable="true"
             android:src="@drawable/baseline_list_24"
-            app:layout_constraintBottom_toTopOf="@+id/S"
-            app:layout_constraintEnd_toStartOf="@+id/textView"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -50,10 +54,12 @@
             android:id="@+id/FABtoProfile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="21dp"
-            android:layout_marginEnd="17dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="825dp"
             android:clickable="true"
             android:src="@drawable/baseline_person_2_24"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -61,15 +67,18 @@
             android:id="@+id/S"
             android:layout_width="250dp"
             android:layout_height="60dp"
-            android:layout_marginTop="389dp"
-            android:layout_marginBottom="186dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="380dp"
+            android:layout_marginEnd="81dp"
+            android:layout_marginBottom="185dp"
             android:ems="10"
             android:hint="How much did you pay?"
             android:inputType="numberSigned"
             app:layout_constraintBottom_toTopOf="@+id/Go"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.509" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
