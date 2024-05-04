@@ -84,18 +84,20 @@ public class BudgetTrackingFragment extends Fragment {
         goBt = getView().findViewById(R.id.Go);
         goBt.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                if (spent!=null) {
+            public void onClick(View v)
+            {
                     Expense ex1 = new Expense();
+                    if (spent.getText().toString().trim().isEmpty())
+                    {
+                        Toast.makeText(getActivity(), "Empty field, try again!", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
                     ex1.setPrice(Double.parseDouble(spent.getText().toString()));
                     Date currentTime = Calendar.getInstance().getTime();
-                    ex1.setPrice(Double.parseDouble(currentTime.toString()));
+                    ex1.setTime(currentTime.toString());
                     gotoChoose(ex1);
-                }
-                else Toast.makeText(getActivity(), "enter your expense", Toast.LENGTH_SHORT).show();
             }
-
-
         });
         ProfileBt = getView().findViewById(R.id.FABtoProfile);
         ProfileBt.setOnClickListener(new View.OnClickListener() {
@@ -112,13 +114,13 @@ public class BudgetTrackingFragment extends Fragment {
             }
         });
 }
-    private void gotoChoose(Expense ex ) {
+    private void gotoChoose(Expense ex1 ) {
         FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
         ChooesesFragment cf = new ChooesesFragment();
         Bundle b = new Bundle();
-        b.putParcelable("expense", ex);
+        b.putParcelable("expense", ex1);
         cf.setArguments(b);
-        ft.replace(R.id.frameLayout,new ChooesesFragment());
+        ft.replace(R.id.frameLayout,cf);
         ft.commit();
     }
     private void gotoprofile() {

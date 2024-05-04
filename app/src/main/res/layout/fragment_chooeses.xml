@@ -12,8 +12,8 @@
 
         <ImageButton
             android:id="@+id/House"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_marginStart="88dp"
             android:src="@drawable/baseline_home_24"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -22,8 +22,8 @@
 
         <ImageButton
             android:id="@+id/Car"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_marginEnd="93dp"
             android:src="@drawable/baseline_directions_car_24"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -32,8 +32,8 @@
 
         <ImageButton
             android:id="@+id/Communications"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_marginTop="55dp"
             android:src="@drawable/baseline_airport_shuttle_24"
             app:layout_constraintStart_toStartOf="@+id/House"
@@ -41,8 +41,8 @@
 
         <ImageButton
             android:id="@+id/Clothes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_marginTop="55dp"
             android:src="@drawable/baseline_checkroom_24"
             app:layout_constraintStart_toStartOf="@+id/Car"
@@ -50,8 +50,8 @@
 
         <ImageButton
             android:id="@+id/Fixing"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_marginTop="55dp"
             android:src="@drawable/baseline_build_24"
             app:layout_constraintStart_toStartOf="@+id/Communications"
@@ -59,28 +59,12 @@
 
         <ImageButton
             android:id="@+id/Phone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_marginTop="55dp"
             android:src="@drawable/baseline_call_24"
             app:layout_constraintStart_toStartOf="@+id/Clothes"
             app:layout_constraintTop_toBottomOf="@+id/Clothes" />
-
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="64dp"
-            android:layout_marginTop="165dp"
-            android:layout_marginEnd="64dp"
-            android:layout_marginBottom="230dp"
-            android:text="what did you pay for?"
-            android:textSize="30dp"
-            app:layout_constraintBottom_toTopOf="@+id/House"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.727" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/Back"
@@ -93,6 +77,24 @@
             android:clickable="true"
             android:src="@drawable/baseline_arrow_back_24"
             app:layout_constraintBottom_toTopOf="@+id/textView6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.063" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="116dp"
+            android:layout_marginEnd="64dp"
+            android:layout_marginBottom="617dp"
+            android:text="what did you pay for?"
+            android:textSize="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="w,1:1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

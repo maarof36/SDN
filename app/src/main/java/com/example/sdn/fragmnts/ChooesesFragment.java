@@ -94,6 +94,12 @@ public class ChooesesFragment extends Fragment {
         if (ex != null) {
             ex1 = ex.getParcelable("expense");}
         h = getView().findViewById(R.id.House);
+        c = getView().findViewById(R.id.Car);
+        c = getView().findViewById(R.id.Car);
+        c3 = getView().findViewById(R.id.Clothes);
+        f = getView().findViewById(R.id.Fixing);
+        p1 = getView().findViewById(R.id.Phone);
+        back =getView().findViewById(R.id.Back);
         h.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -101,7 +107,6 @@ public class ChooesesFragment extends Fragment {
                 gotoList();
             }
         });
-        c = getView().findViewById(R.id.Car);
         c.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -109,7 +114,6 @@ public class ChooesesFragment extends Fragment {
                 gotoList();
             }
         });
-        c2 = getView().findViewById(R.id.Communications);
         c2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -117,7 +121,6 @@ public class ChooesesFragment extends Fragment {
                 gotoList();
             }
         });
-        c3 = getView().findViewById(R.id.Clothes);
         c3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -125,7 +128,6 @@ public class ChooesesFragment extends Fragment {
                 gotoList();
             }
         });
-        f = getView().findViewById(R.id.Fixing);
         f.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -133,7 +135,6 @@ public class ChooesesFragment extends Fragment {
                 gotoList();
             }
         });
-        p1 = getView().findViewById(R.id.Phone);
         p1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -142,7 +143,6 @@ public class ChooesesFragment extends Fragment {
                 gotoList();
             }
         });
-        back =getView().findViewById(R.id.Back);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -157,7 +157,7 @@ public class ChooesesFragment extends Fragment {
 
     private void addToFirestore() {
 
-            String price1,type , time;
+            String price1 , type , time;
 //get data from screen
 
         price1=ex1.getPrice().toString();
@@ -178,6 +178,8 @@ public class ChooesesFragment extends Fragment {
                         @Override
                         public void onFailure(@NonNull Exception e) {
                             Log.e("addToFirestore() - add to collection: ", e.getMessage());
+                            Toast.makeText(getActivity(), "something went wrong,try again ", Toast.LENGTH_LONG).show();
+                            gotoBudget();
                         }
                     });
 
