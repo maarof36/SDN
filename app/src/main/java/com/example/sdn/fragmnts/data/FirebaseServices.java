@@ -1,4 +1,4 @@
-package com.example.sdn.data;
+package com.example.sdn.fragmnts.data;
 
 import android.net.Uri;
 
@@ -10,10 +10,8 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FirebaseStorage;
 
-import java.security.PrivateKey;
-
-public class FierbaseServices {
-     private static FierbaseServices instance;
+public class FirebaseServices {
+     private static FirebaseServices instance;
     private Uri selectedImageURL;
     private User currentUser;
      private FirebaseAuth auth;
@@ -27,7 +25,7 @@ public class FierbaseServices {
     public void setSelectedImageURL(Uri selectedImageURL) {
         this.selectedImageURL = selectedImageURL;
     }
-     public FierbaseServices(){
+     public FirebaseServices(){
         auth = FirebaseAuth.getInstance();
         fire = FirebaseFirestore.getInstance();
         storage = FirebaseStorage.getInstance();
@@ -46,9 +44,9 @@ public class FierbaseServices {
     }
 
 
-     public static FierbaseServices getInstance(){
+     public static FirebaseServices getInstance(){
          if(instance == null){
-             instance = new FierbaseServices();
+             instance = new FirebaseServices();
          }
          return instance;
      }

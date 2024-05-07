@@ -1,4 +1,4 @@
-package com.example.sdn.data;
+package com.example.sdn.fragmnts.data;
 
 import android.os.Parcel;
 import android.os.Parcelable;

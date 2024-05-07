@@ -16,8 +16,8 @@ import android.widget.TextView;
 
 import com.example.sdn.R;
 import com.example.sdn.Utils;
-import com.example.sdn.data.FierbaseServices;
-import com.example.sdn.data.User;
+import com.example.sdn.fragmnts.data.FirebaseServices;
+import com.example.sdn.fragmnts.data.User;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.squareup.picasso.Picasso;
 
@@ -31,7 +31,7 @@ public class ProfileFragment extends Fragment {
    private ImageView ProfilePic;
     private Utils utils;
     private static final int GALLERY_REQUEST_CODE = 123;
-    private FierbaseServices fbs;
+    private FirebaseServices fbs;
     private TextView UserName, Email,Addres;
     private boolean flagAlreadyFilled = false;
 
@@ -88,7 +88,7 @@ public class ProfileFragment extends Fragment {
     public void onStart() {
         super.onStart();
         init();
-        fbs = FierbaseServices.getInstance();
+        fbs = FirebaseServices.getInstance();
         UserName=getView().findViewById(R.id.name);
         Email=getView().findViewById(R.id.email);
         Addres=getView().findViewById(R.id.addres);
@@ -116,7 +116,7 @@ public class ProfileFragment extends Fragment {
     }
 
     private void init() {
-        fbs=FierbaseServices.getInstance();
+        fbs= FirebaseServices.getInstance();
         utils = Utils.getInstance();
     }
     private void fillUserData() {

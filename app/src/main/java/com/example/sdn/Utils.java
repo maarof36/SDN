@@ -9,7 +9,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 
-import com.example.sdn.data.FierbaseServices;
+import com.example.sdn.fragmnts.data.FirebaseServices;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.StorageReference;
@@ -20,12 +20,12 @@ import java.util.UUID;
 public class Utils {
     private static Utils instance;
 
-    private FierbaseServices fbs;
+    private FirebaseServices fbs;
     private String imageStr;
 
     public Utils()
     {
-        fbs = FierbaseServices.getInstance();
+        fbs = FirebaseServices.getInstance();
     }
 
     public static Utils getInstance()

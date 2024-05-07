@@ -1,13 +1,9 @@
-package com.example.sdn.data;
+package com.example.sdn.fragmnts.data;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
-
-import java.sql.Time;
-import java.util.Date;
-import java.util.Objects;
 
 public class Expense implements Parcelable  {
     private Double price;

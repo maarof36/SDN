@@ -12,12 +12,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.example.sdn.R;
-import com.example.sdn.data.Expense2;
-import com.example.sdn.data.FierbaseServices;
+import com.example.sdn.fragmnts.data.Expense2;
+import com.example.sdn.fragmnts.data.FirebaseServices;
 import com.example.sdn.ExpenseAdapter;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -35,8 +34,8 @@ import java.util.ArrayList;
 public class InfoFragment extends Fragment {
     private FloatingActionButton back;
     private RecyclerView recyclerView;
-    private FierbaseServices fbs;
-    private SearchView srchView;
+    private FirebaseServices fbs;
+
     private ExpenseAdapter myAdapter;
     private ArrayList<Expense2> ex;
 
@@ -98,7 +97,7 @@ public class InfoFragment extends Fragment {
         recyclerView = getView().findViewById(R.id.pList);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        fbs = FierbaseServices.getInstance();
+        fbs = FirebaseServices.getInstance();
         fbs.setUserChangeFlag(false);
         ex = new ArrayList<>();
         ex = getExpense();
@@ -138,7 +137,7 @@ public class InfoFragment extends Fragment {
 
         try {
             ex.clear();
-            fbs.getFire().collection("expense")
+            fbs.getFire().collection("expenses")
                     .get()
                     .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                         @Override

@@ -15,7 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.sdn.fragmnts.BudgetTrackingFragment;
-import com.example.sdn.data.FierbaseServices;
+import com.example.sdn.fragmnts.data.FirebaseServices;
 import com.example.sdn.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -32,7 +32,7 @@ public class LoginFragment extends Fragment {
     private TextView Link , FLink;
 
     private Button btLogin;
-    private FierbaseServices fbs;
+    private FirebaseServices fbs;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -83,7 +83,7 @@ public class LoginFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        fbs = FierbaseServices.getInstance();
+        fbs = FirebaseServices.getInstance();
         etUsernameL = getView().findViewById(R.id.etUsernameL);
         etPasswordL = getView().findViewById(R.id.etPasswordL);
         Link = getView().findViewById(R.id.SingUpLink);

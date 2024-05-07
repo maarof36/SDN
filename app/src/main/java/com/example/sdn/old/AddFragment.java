@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.sdn.data.FierbaseServices;
+import com.example.sdn.fragmnts.data.FirebaseServices;
 import com.example.sdn.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -26,7 +26,7 @@ import com.google.firebase.firestore.DocumentReference;
 public class AddFragment extends Fragment {
     private EditText et11 ,et22 ,et33 ,et44;
     private Button btD;
-    private FierbaseServices fbs;
+    private FirebaseServices fbs;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -83,7 +83,7 @@ public class AddFragment extends Fragment {
     }
 
     private void connectComponents() {
-        fbs = FierbaseServices.getInstance();
+        fbs = FirebaseServices.getInstance();
         et11 = getView().findViewById(R.id.et1);
         et22 = getView().findViewById(R.id.et2);
         et33 = getView().findViewById(R.id.et3);

@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.sdn.data.FierbaseServices;
+import com.example.sdn.fragmnts.data.FirebaseServices;
 import com.example.sdn.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -26,7 +26,7 @@ import com.google.android.gms.tasks.Task;
 public class ForgotPasswordFragment extends Fragment {
     private EditText etmail;
     private Button etreast , btBack;
-    private FierbaseServices fbs;
+    private FirebaseServices fbs;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -80,7 +80,7 @@ public class ForgotPasswordFragment extends Fragment {
 
     {
         super.onStart();
-        fbs = FierbaseServices.getInstance();
+        fbs = FirebaseServices.getInstance();
         etmail = getView().findViewById(R.id.etEmail22);
         btBack =getView().findViewById(R.id.btFtoL);
         btBack.setOnClickListener(new View.OnClickListener() {

@@ -1,13 +1,11 @@
 package com.example.sdn.usermngmnt;
 
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,9 +15,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.sdn.Utils;
-import com.example.sdn.data.FierbaseServices;
+import com.example.sdn.fragmnts.data.FirebaseServices;
 import com.example.sdn.R;
-import com.example.sdn.data.User;
+import com.example.sdn.fragmnts.data.User;
 import com.example.sdn.fragmnts.BudgetTrackingFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -38,7 +36,7 @@ public class SignupFragment extends Fragment {
     private EditText etUsernameS, etPasswordS, etEmailS, etAddresS;
 
     private Button btBack, btSignUp;
-    private FierbaseServices fbs;
+    private FirebaseServices fbs;
     private Utils msg;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -91,7 +89,7 @@ public class SignupFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        fbs = FierbaseServices.getInstance();
+        fbs = FirebaseServices.getInstance();
         etUsernameS = getView().findViewById(R.id.etUsernameS);
         etPasswordS = getView().findViewById(R.id.etPasswordS);
         etEmailS = getView().findViewById(R.id.etEmail);

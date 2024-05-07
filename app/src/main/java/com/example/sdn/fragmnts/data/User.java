@@ -1,6 +1,4 @@
-package com.example.sdn.data;
-
-import android.os.Parcel;
+package com.example.sdn.fragmnts.data;
 
 import java.util.ArrayList;
 

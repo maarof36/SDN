@@ -5,7 +5,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.fragment.app.ListFragment;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,18 +14,13 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.sdn.R;
-import com.example.sdn.data.Expense;
-import com.example.sdn.data.Expense2;
-import com.example.sdn.data.FierbaseServices;
+import com.example.sdn.fragmnts.data.Expense;
+import com.example.sdn.fragmnts.data.Expense2;
+import com.example.sdn.fragmnts.data.FirebaseServices;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.firestore.DocumentReference;
-
-import java.lang.reflect.Type;
-import java.sql.Time;
-import java.time.LocalTime;
-import java.util.UUID;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -36,7 +30,7 @@ import java.util.UUID;
 public class ChooesesFragment extends Fragment {
     private ImageButton h,c ,c2 , c3 ,f , p1 ;
     private FloatingActionButton back;
-    FierbaseServices fbs;
+    FirebaseServices fbs;
     private Expense ex1 ;
     private Expense2 expense2;
 
@@ -90,49 +84,50 @@ public class ChooesesFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+        fbs = FirebaseServices.getInstance();
         Bundle ex = getArguments();
         if (ex != null) {
             ex1 = ex.getParcelable("expense");}
         h = getView().findViewById(R.id.House);
         c = getView().findViewById(R.id.Car);
-        c = getView().findViewById(R.id.Car);
+        c2 = getView().findViewById(R.id.Car);
         c3 = getView().findViewById(R.id.Clothes);
         f = getView().findViewById(R.id.Fixing);
         p1 = getView().findViewById(R.id.Phone);
-        back =getView().findViewById(R.id.Back);
+        back = getView().findViewById(R.id.btnBackChooseFragment);
         h.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ex1.setType("House");
-                gotoList();
+                addToFirestore();
             }
         });
         c.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ex1.setType("Car");
-                gotoList();
+                addToFirestore();
             }
         });
         c2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ex1.setType("Communiations");
-                gotoList();
+                addToFirestore();
             }
         });
         c3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ex1.setType("Clothes");
-                gotoList();
+                addToFirestore();
             }
         });
         f.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ex1.setType("Fixing");
-                gotoList();
+                addToFirestore();
             }
         });
         p1.setOnClickListener(new View.OnClickListener() {
@@ -140,7 +135,6 @@ public class ChooesesFragment extends Fragment {
             public void onClick(View v) {
                 ex1.setType("Phone");
                 addToFirestore();
-                gotoList();
             }
         });
         back.setOnClickListener(new View.OnClickListener() {
@@ -166,11 +160,11 @@ public class ChooesesFragment extends Fragment {
 
         expense2 = new Expense2(price1, type, time);
 
-        fbs.getFire().collection("expense").add(expense2)
+        fbs.getFire().collection("expenses").add(expense2)
                     .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                         @Override
                         public void onSuccess(DocumentReference documentReference) {
-                            Toast.makeText(getActivity(), "ADD Expense is Succesed ", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), "ADD Expense is Succeeded ", Toast.LENGTH_SHORT).show();
                             Log.e("addToFirestore() - add to collection: ", "Successful!");
                             gotoList();
                         }
@@ -188,7 +182,7 @@ public class ChooesesFragment extends Fragment {
 
     private void gotoList() {
         FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.frameLayout,new ListFragment());
+        ft.replace(R.id.frameLayout,new InfoFragment());
         ft.commit();
     }
     private void gotoBudget() {

@@ -9,8 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.sdn.data.Expense;
-import com.example.sdn.data.Expense2;
+import com.example.sdn.fragmnts.data.Expense2;
 
 import java.util.ArrayList;
 

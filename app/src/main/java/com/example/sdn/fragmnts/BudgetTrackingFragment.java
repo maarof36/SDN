@@ -14,7 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.sdn.R;
-import com.example.sdn.data.Expense;
+import com.example.sdn.fragmnts.data.Expense;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.Calendar;
@@ -131,7 +131,7 @@ public class BudgetTrackingFragment extends Fragment {
 
     private void gotoList() {
         FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.frameLayout,new ListFragment());
+        ft.replace(R.id.frameLayout,new InfoFragment());
         ft.commit();
     }
     }

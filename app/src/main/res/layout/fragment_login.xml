@@ -8,7 +8,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/ik">
 
         <Button
             android:id="@+id/btLogin"
@@ -18,6 +19,7 @@
             android:layout_marginTop="148dp"
             android:layout_marginEnd="160dp"
             android:layout_marginBottom="100dp"
+            android:backgroundTint="#b8b8b8"
             android:text="Login"
             app:layout_constraintBottom_toTopOf="@+id/SingUpLink"
             app:layout_constraintEnd_toEndOf="parent"
@@ -31,6 +33,7 @@
             android:layout_marginStart="50dp"
             android:layout_marginTop="175dp"
             android:layout_marginEnd="50dp"
+            android:backgroundTint="#b8b8b8"
             android:ems="10"
             android:hint="Email"
             android:inputType="textEmailAddress"
@@ -47,6 +50,7 @@
             android:layout_marginStart="50dp"
             android:layout_marginTop="100dp"
             android:layout_marginEnd="50dp"
+            android:backgroundTint="#b8b8b8"
             android:ems="10"
             android:hint="Password"
             android:inputType="textPassword"
