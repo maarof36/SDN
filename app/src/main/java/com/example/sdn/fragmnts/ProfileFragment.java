@@ -22,6 +22,7 @@ import com.example.sdn.Utils;
 import com.example.sdn.fragmnts.data.FirebaseServices;
 import com.example.sdn.fragmnts.data.User;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.protobuf.Empty;
 import com.squareup.picasso.Picasso;
 
 /**
@@ -99,12 +100,18 @@ public class ProfileFragment extends Fragment {
         Email=getView().findViewById(R.id.email);
         Addres=getView().findViewById(R.id.address);
 
+        if(fbs.getCurrentUser()!=null){
+            UserName.setText(fbs.getCurrentUser().getUsername());
+            Email.setText(fbs.getCurrentUser().getEmail());
+            Addres.setText(fbs.getCurrentUser().getAddress());
+        }
+
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Data validation
-                String username = etName.getText().toString();
-                String address = etAddress.getText().toString();
+                String username = UserName.getText().toString();
+                String address = Addres.getText().toString();
                 if (username.trim().isEmpty() || address.trim().isEmpty()) {
                     Toast.makeText(getActivity(), "some fields are empty", Toast.LENGTH_SHORT).show();
                     return;
@@ -117,13 +124,12 @@ public class ProfileFragment extends Fragment {
                             !current.getAddress().equals(address)||
                             !current.getPhoto().equals(fbs.getSelectedImageURL().toString()))
                     {
-                        User user;
                         if (fbs.getSelectedImageURL() != null)
-                            user = new User(username,fbs.getAuth().getCurrentUser().getEmail().toString(),address);
+                            current = new User(username,fbs.getAuth().getCurrentUser().getEmail().toString(),address, fbs.getSelectedImageURL().toString(), current.getExpenses());
                         else
-                            user = new User(username, fbs.getAuth().getCurrentUser().getEmail(), address);
+                            current = new User(username, fbs.getAuth().getCurrentUser().getEmail(), address, "", current.getExpenses());
 
-                        fbs.updateUser(user);
+                        fbs.updateUser(current);
                         utils.showMessageDialog(getActivity(), "Data updated succesfully!");
                         fbs.reloadInstance();
                     }
@@ -151,8 +157,8 @@ public class ProfileFragment extends Fragment {
                 openGallery();
             }
         });
-        fillUserData();
-        flagAlreadyFilled = true;
+        //fillUserData();
+        //flagAlreadyFilled = true;
 
     }
 

@@ -12,13 +12,13 @@ public class User {
     public User(String username, String email, String addres) {
     }
 
-    public User(String firstName, String lastName, String username, String phone, String address, String photo) {
+    public User(String username, String phone, String address, String photo, ArrayList<Expense> expenses) {
 
         this.username = username;
         this.email = email;
         this.address = address;
         this.photo = photo;
-        this.expenses = new ArrayList<>();
+        this.expenses = expenses;
     }
 
     public String getUsername() {

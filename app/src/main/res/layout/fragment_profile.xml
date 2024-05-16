@@ -9,7 +9,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/ik">
+        android:background="@drawable/ik"
+        android:backgroundTint="#8BC34A">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/imageView5"
@@ -76,8 +77,8 @@
             android:layout_marginEnd="173dp"
             android:layout_marginBottom="437dp"
             android:ems="10"
+            android:hint="Name"
             android:inputType="text"
-            android:text="Name"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -92,8 +93,8 @@
             android:layout_marginEnd="173dp"
             android:layout_marginBottom="331dp"
             android:ems="10"
+            android:hint="Email"
             android:inputType="textEmailAddress"
-            android:text="Email"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -108,8 +109,8 @@
             android:layout_marginEnd="173dp"
             android:layout_marginBottom="229dp"
             android:ems="10"
+            android:hint="Address"
             android:inputType="textEmailAddress"
-            android:text="Address"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
