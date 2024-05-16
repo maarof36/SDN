@@ -10,10 +10,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.sdn.R;
+import com.example.sdn.barFragment;
 import com.example.sdn.fragmnts.data.Expense;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -28,6 +30,7 @@ import java.util.Date;
 public class BudgetTrackingFragment extends Fragment {
     private FloatingActionButton ProfileBt ,ListBt;
     private Button goBt;
+    private ImageButton gbtn;
     private TextView spent;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -82,6 +85,13 @@ public class BudgetTrackingFragment extends Fragment {
         super.onStart();
         spent = getView().findViewById(R.id.S);
         goBt = getView().findViewById(R.id.Go);
+        gbtn = getView().findViewById(R.id.grfBtn);
+        gbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToGraph();
+            }
+        });
         goBt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
@@ -114,6 +124,13 @@ public class BudgetTrackingFragment extends Fragment {
             }
         });
 }
+
+    private void goToGraph() {
+        FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.frameLayout,new barFragment());
+        ft.commit();
+    }
+
     private void gotoChoose(Expense ex1 ) {
         FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
         ChooesesFragment cf = new ChooesesFragment();
