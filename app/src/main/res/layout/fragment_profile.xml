@@ -49,19 +49,25 @@
             android:id="@+id/btBtoBudget"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="345dp"
-            android:layout_marginBottom="825dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
             android:clickable="true"
             android:src="@drawable/baseline_arrow_back_24"
             app:backgroundTint="#b8b8b8"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <Button
+            android:id="@+id/Upbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="30dp"
+            android:text="update"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -69,38 +75,41 @@
             android:layout_marginTop="114dp"
             android:layout_marginEnd="173dp"
             android:layout_marginBottom="437dp"
-            android:textColor="#b8b8b8"
-            android:textSize="20sp"
+            android:ems="10"
+            android:inputType="text"
+            android:text="Name"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
-        <TextView
+        <EditText
             android:id="@+id/email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="170dp"
+            android:layout_marginStart="181dp"
             android:layout_marginTop="75dp"
-            android:layout_marginEnd="160dp"
+            android:layout_marginEnd="173dp"
             android:layout_marginBottom="331dp"
-            android:textColor="#b8b8b8"
-            android:textSize="20sp"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:text="Email"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/name" />
 
-        <TextView
-            android:id="@+id/addres"
+        <EditText
+            android:id="@+id/address"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="170dp"
+            android:layout_marginStart="181dp"
             android:layout_marginTop="75dp"
-            android:layout_marginEnd="160dp"
+            android:layout_marginEnd="173dp"
             android:layout_marginBottom="229dp"
-            android:textColor="#b8b8b8"
-            android:textSize="20sp"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:text="Address"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

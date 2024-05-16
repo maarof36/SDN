@@ -11,8 +11,11 @@ import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.sdn.R;
 import com.example.sdn.Utils;
@@ -29,7 +32,9 @@ import com.squareup.picasso.Picasso;
 public class ProfileFragment extends Fragment {
    private FloatingActionButton fbtC , Back;
    private ImageView ProfilePic;
-    private Utils utils;
+    EditText etName,etEmail, etAddress;
+   private Button btnUpdate;
+   private Utils utils;
     private static final int GALLERY_REQUEST_CODE = 123;
     private FirebaseServices fbs;
     private TextView UserName, Email,Addres;
@@ -89,10 +94,46 @@ public class ProfileFragment extends Fragment {
         super.onStart();
         init();
         fbs = FirebaseServices.getInstance();
+        btnUpdate =getView().findViewById(R.id.Upbutton);
         UserName=getView().findViewById(R.id.name);
         Email=getView().findViewById(R.id.email);
-        Addres=getView().findViewById(R.id.addres);
+        Addres=getView().findViewById(R.id.address);
 
+        btnUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Data validation
+                String username = etName.getText().toString();
+                String address = etAddress.getText().toString();
+                if (username.trim().isEmpty() || address.trim().isEmpty()) {
+                    Toast.makeText(getActivity(), "some fields are empty", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                User current = fbs.getCurrentUser();
+                if (current != null)
+                {
+                    if (!current.getUsername().equals(username)  ||
+                            !current.getAddress().equals(address)||
+                            !current.getPhoto().equals(fbs.getSelectedImageURL().toString()))
+                    {
+                        User user;
+                        if (fbs.getSelectedImageURL() != null)
+                            user = new User(username,fbs.getAuth().getCurrentUser().getEmail().toString(),address);
+                        else
+                            user = new User(username, fbs.getAuth().getCurrentUser().getEmail(), address);
+
+                        fbs.updateUser(user);
+                        utils.showMessageDialog(getActivity(), "Data updated succesfully!");
+                        fbs.reloadInstance();
+                    }
+                    else
+                    {
+                        utils.showMessageDialog(getActivity(), "No changes!");
+                    }
+                }
+            }
+        });
         Back = getView().findViewById(R.id.btBtoBudget);
         Back.setOnClickListener(new View.OnClickListener() {
             @Override

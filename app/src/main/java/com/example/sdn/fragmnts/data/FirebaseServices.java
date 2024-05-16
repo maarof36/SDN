@@ -50,6 +50,10 @@ public class FirebaseServices {
          }
          return instance;
      }
+    public static FirebaseServices reloadInstance(){
+        instance=new FirebaseServices();
+        return instance;
+    }
     public void setUserChangeFlag(boolean userChangeFlag) {
         this.userChangeFlag = userChangeFlag;
     }

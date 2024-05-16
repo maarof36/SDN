@@ -15,7 +15,7 @@ public class User {
     public User(String firstName, String lastName, String username, String phone, String address, String photo) {
 
         this.username = username;
-        this.email = phone;
+        this.email = email;
         this.address = address;
         this.photo = photo;
         this.expenses = new ArrayList<>();
