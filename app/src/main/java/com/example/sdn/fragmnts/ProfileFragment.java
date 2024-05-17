@@ -1,5 +1,7 @@
 package com.example.sdn.fragmnts;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -21,6 +23,7 @@ import com.example.sdn.R;
 import com.example.sdn.Utils;
 import com.example.sdn.fragmnts.data.FirebaseServices;
 import com.example.sdn.fragmnts.data.User;
+import com.example.sdn.usermngmnt.LoginFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.protobuf.Empty;
 import com.squareup.picasso.Picasso;
@@ -33,8 +36,8 @@ import com.squareup.picasso.Picasso;
 public class ProfileFragment extends Fragment {
    private FloatingActionButton fbtC , Back;
    private ImageView ProfilePic;
-    EditText etName,etEmail, etAddress;
-   private Button btnUpdate;
+    //EditText etName,etEmail, etAddress;
+   private Button btnUpdate, LogOutbtn;
    private Utils utils;
     private static final int GALLERY_REQUEST_CODE = 123;
     private FirebaseServices fbs;
@@ -96,6 +99,7 @@ public class ProfileFragment extends Fragment {
         init();
         fbs = FirebaseServices.getInstance();
         btnUpdate =getView().findViewById(R.id.Upbutton);
+        LogOutbtn =getView().findViewById(R.id.logoutBtn);
         UserName=getView().findViewById(R.id.name);
         Email=getView().findViewById(R.id.email);
         Addres=getView().findViewById(R.id.address);
@@ -135,9 +139,24 @@ public class ProfileFragment extends Fragment {
                     }
                     else
                     {
-                        utils.showMessageDialog(getActivity(), "No changes!");
+                        utils.showMessageDialog(getActivity(), "No changes!Try again");
                     }
                 }
+            }
+        });
+        LogOutbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new AlertDialog.Builder(getContext()).setMessage("Are you sure want to sign out?")
+                        .setCancelable(false)
+                        .setPositiveButton("yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                fbs.getAuth().signOut();
+                                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,new LoginFragment()).commit();
+                            }
+                        }).setNegativeButton("No",null)
+                        .show();
             }
         });
         Back = getView().findViewById(R.id.btBtoBudget);
@@ -161,6 +180,8 @@ public class ProfileFragment extends Fragment {
         //flagAlreadyFilled = true;
 
     }
+
+
 
     private void init() {
         fbs= FirebaseServices.getInstance();
@@ -196,7 +217,11 @@ public class ProfileFragment extends Fragment {
             utils.uploadImage(getActivity(), selectedImageUri);
         }
     }
-
+    private void gotoLogin() {
+        FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.frameLayout,new LoginFragment());
+        ft.commit();
+    }
     private void gotoBudget() {
         FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.frameLayout,new BudgetTrackingFragment());

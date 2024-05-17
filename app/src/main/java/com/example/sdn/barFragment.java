@@ -70,6 +70,10 @@ public class barFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+       // intint();
+    }
+
+    private void intint() {
         GraphView grf = getView().findViewById(R.id.idGraphView);
         LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[]{
                 // on below line we are adding
