@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.sdn.fragmnts.data.FirebaseServices;
+import com.example.sdn.data.FirebaseServices;
 import com.example.sdn.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;

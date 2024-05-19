@@ -4,26 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".usermngmnt.SignupFragment">
+    tools:context=".UserManagement.SignupFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/ik"
-        android:backgroundTint="#8BC34A">
+        android:background="@drawable/_d_graphic_wallpaper_with_colorful_grainy_gradients">
 
         <EditText
             android:id="@+id/etUsernameS"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="152dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="180dp"
+            android:layout_marginEnd="50dp"
             android:backgroundTint="#b8b8b8"
             android:ems="10"
             android:hint="UserName"
             android:inputType="textEmailAddress"
             android:textSize="25sp"
             app:layout_constraintEnd_toEndOf="@+id/etPasswordS"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/etPasswordS"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -31,7 +31,7 @@
             android:id="@+id/etPasswordS"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
             android:backgroundTint="#b8b8b8"
             android:ems="10"
             android:hint="Password"
@@ -46,20 +46,24 @@
             android:id="@+id/btSignup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="224dp"
+            android:layout_marginStart="160dp"
+            android:layout_marginTop="56dp"
+            android:layout_marginEnd="160dp"
+            android:layout_marginBottom="300dp"
             android:backgroundTint="#b8b8b8"
             android:text="SignUp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etPasswordS" />
+            app:layout_constraintTop_toBottomOf="@+id/etAddres" />
 
         <Button
             android:id="@+id/btStoL"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
             android:backgroundTint="#b8b8b8"
             android:onClick="backLogin"
             android:text="Back"
@@ -70,37 +74,41 @@
             android:id="@+id/etEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="96dp"
+            android:layout_marginTop="30dp"
             android:backgroundTint="#b8b8b8"
             android:ems="10"
             android:hint="Email"
             android:inputType="textEmailAddress"
             android:textSize="25sp"
             app:layout_constraintEnd_toEndOf="@+id/btSignup"
-            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="@+id/btSignup"
-            app:layout_constraintTop_toBottomOf="@+id/etUsernameS" />
+            app:layout_constraintTop_toBottomOf="@+id/etPasswordS" />
 
         <EditText
             android:id="@+id/etAddres"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="172dp"
+            android:layout_marginTop="30dp"
             android:backgroundTint="#b8b8b8"
             android:ems="10"
             android:hint="Addres"
             android:inputType="textPostalAddress"
             android:textSize="25sp"
             app:layout_constraintEnd_toEndOf="@+id/btSignup"
-            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="@+id/btSignup"
-            app:layout_constraintTop_toBottomOf="@+id/etUsernameS" />
+            app:layout_constraintTop_toBottomOf="@+id/etEmail" />
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="#b8b8b8" />
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="156dp"
+            android:src="@drawable/icons8_app_192___"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

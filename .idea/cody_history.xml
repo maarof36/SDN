@@ -1,6 +1,251 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChatHistory">
+    <accountData>
+      <list>
+        <AccountData>
+          <accountId value="VXNlcjozMDIwNTE=" />
+          <chats>
+            <list>
+              <chat>
+                <accountId value="VXNlcjozMDIwNTE=" />
+                <internalId value="7a170ef7-0bb2-4e54-ad5c-497c3f6a6639" />
+                <llm>
+                  <llm>
+                    <model value="anthropic/claude-3-sonnet-20240229" />
+                    <provider value="Anthropic" />
+                    <title value="Claude 3 Sonnet" />
+                  </llm>
+                </llm>
+              </chat>
+              <chat>
+                <accountId value="VXNlcjozMDIwNTE=" />
+                <internalId value="81b2ae8c-aaa4-4953-b883-780021299747" />
+                <llm>
+                  <llm>
+                    <model value="anthropic/claude-3-sonnet-20240229" />
+                    <provider value="Anthropic" />
+                    <title value="Claude 3 Sonnet" />
+                  </llm>
+                </llm>
+              </chat>
+              <chat>
+                <accountId value="VXNlcjozMDIwNTE=" />
+                <internalId value="6a1c1441-f714-452e-a854-1b81ed7e24ed" />
+                <llm>
+                  <llm>
+                    <model value="anthropic/claude-3-sonnet-20240229" />
+                    <provider value="Anthropic" />
+                    <title value="Claude 3 Sonnet" />
+                  </llm>
+                </llm>
+              </chat>
+              <chat>
+                <accountId value="VXNlcjozMDIwNTE=" />
+                <internalId value="1f25cb4e-abfe-498e-91d1-dcdde6b2fede" />
+                <llm>
+                  <llm>
+                    <model value="anthropic/claude-3-sonnet-20240229" />
+                    <provider value="Anthropic" />
+                    <title value="Claude 3 Sonnet" />
+                  </llm>
+                </llm>
+              </chat>
+              <chat>
+                <accountId value="VXNlcjozMDIwNTE=" />
+                <internalId value="44cb3526-0986-4e4f-9610-9efccc570acc" />
+                <llm>
+                  <llm>
+                    <model value="anthropic/claude-3-sonnet-20240229" />
+                    <provider value="Anthropic" />
+                    <title value="Claude 3 Sonnet" />
+                  </llm>
+                </llm>
+              </chat>
+              <chat>
+                <accountId value="VXNlcjozMDIwNTE=" />
+                <internalId value="9dd73485-58e4-4a75-a40d-083a79839cbd" />
+                <llm>
+                  <llm>
+                    <model value="anthropic/claude-3-sonnet-20240229" />
+                    <provider value="Anthropic" />
+                    <title value="Claude 3 Sonnet" />
+                  </llm>
+                </llm>
+                <messages>
+                  <list>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="How to use setArguments() and getArguments() methods in Fragments" />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                      <text value="In Android, `setArguments()` and `getArguments()` methods are used to pass data between activities and fragments, or between fragments. These methods work with a `Bundle` object, which is a data structure that allows you to store key-value pairs of various data types.&#10;&#10;Here's how you can use these methods:&#10;&#10;1. **Passing data to a fragment using `setArguments()`**:&#10;&#10;```java&#10;// Create a new instance of the fragment&#10;MyFragment fragment = new MyFragment();&#10;&#10;// Create a Bundle object&#10;Bundle bundle = new Bundle();&#10;&#10;// Put data into the Bundle&#10;bundle.putString(&quot;key1&quot;, &quot;value1&quot;);&#10;bundle.putInt(&quot;key2&quot;, 42);&#10;&#10;// Set the Bundle as arguments for the fragment&#10;fragment.setArguments(bundle);&#10;&#10;// Add the fragment to your activity or another fragment&#10;getSupportFragmentManager().beginTransaction()&#10;        .add(R.id.fragment_container, fragment)&#10;        .commit();&#10;```&#10;&#10;2. **Retrieving data from a fragment using `getArguments()`**:&#10;&#10;Inside the fragment's `onCreate()` method or any other lifecycle method, you can retrieve the `Bundle` using `getArguments()` and then extract the data from it.&#10;&#10;```java&#10;public class MyFragment extends Fragment {&#10;    @Override&#10;    public void onCreate(@Nullable Bundle savedInstanceState) {&#10;        super.onCreate(savedInstanceState);&#10;&#10;        // Get the Bundle from the arguments&#10;        Bundle bundle = getArguments();&#10;&#10;        // Check if the Bundle is not null&#10;        if (bundle != null) {&#10;            // Extract data from the Bundle&#10;            String value1 = bundle.getString(&quot;key1&quot;);&#10;            int value2 = bundle.getInt(&quot;key2&quot;);&#10;&#10;            // Use the extracted data&#10;            Log.d(&quot;MyFragment&quot;, &quot;value1: &quot; + value1);&#10;            Log.d(&quot;MyFragment&quot;, &quot;value2: &quot; + value2);&#10;        }&#10;    }&#10;&#10;    // ...&#10;}&#10;```&#10;&#10;It's a common practice to define constants for the keys used in the `Bundle`. This makes your code more readable and easier to maintain. For example:&#10;&#10;```java&#10;public static final String ARG_PARAM1 = &quot;param1&quot;;&#10;public static final String ARG_PARAM2 = &quot;param2&quot;;&#10;```&#10;&#10;Then, you can use these constants when putting data into the `Bundle` and retrieving data from it.&#10;&#10;```java&#10;// Putting data into the Bundle&#10;bundle.putString(ARG_PARAM1, &quot;value1&quot;);&#10;bundle.putInt(ARG_PARAM2, 42);&#10;&#10;// Retrieving data from the Bundle&#10;String value1 = bundle.getString(ARG_PARAM1);&#10;int value2 = bundle.getInt(ARG_PARAM2);&#10;```&#10;&#10;By using `setArguments()` and `getArguments()`, you can effectively pass data between activities and fragments, or between fragments, in your Android application." />
+                    </message>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="how to use it in other fragment if it is a class" />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                      <text value="If you want to use the `setArguments()` and `getArguments()` methods in another fragment class, you can follow a similar approach. Here's an example:&#10;&#10;Suppose you have two fragment classes: `FragmentA` and `FragmentB`. You want to pass data from `FragmentA` to `FragmentB`.&#10;&#10;In `FragmentA`:&#10;&#10;```java&#10;public class FragmentA extends Fragment {&#10;    // ...&#10;&#10;    private void openFragmentB(String data1, int data2) {&#10;        FragmentB fragmentB = new FragmentB();&#10;&#10;        // Create a Bundle object&#10;        Bundle bundle = new Bundle();&#10;&#10;        // Put data into the Bundle&#10;        bundle.putString(&quot;key1&quot;, data1);&#10;        bundle.putInt(&quot;key2&quot;, data2);&#10;&#10;        // Set the Bundle as arguments for the fragment&#10;        fragmentB.setArguments(bundle);&#10;&#10;        // Replace or add the fragment to your activity&#10;        getParentFragmentManager().beginTransaction()&#10;                .replace(R.id.fragment_container, fragmentB)&#10;                .addToBackStack(null)&#10;                .commit();&#10;    }&#10;&#10;    // ...&#10;}&#10;```&#10;&#10;In `FragmentB`:&#10;&#10;```java&#10;public class FragmentB extends Fragment {&#10;    private static final String ARG_PARAM1 = &quot;key1&quot;;&#10;    private static final String ARG_PARAM2 = &quot;key2&quot;;&#10;&#10;    private String data1;&#10;    private int data2;&#10;&#10;    @Override&#10;    public void onCreate(@Nullable Bundle savedInstanceState) {&#10;        super.onCreate(savedInstanceState);&#10;&#10;        // Get the Bundle from the arguments&#10;        Bundle bundle = getArguments();&#10;&#10;        // Check if the Bundle is not null&#10;        if (bundle != null) {&#10;            // Extract data from the Bundle&#10;            data1 = bundle.getString(ARG_PARAM1);&#10;            data2 = bundle.getInt(ARG_PARAM2);&#10;&#10;            // Use the extracted data&#10;            Log.d(&quot;FragmentB&quot;, &quot;data1: &quot; + data1);&#10;            Log.d(&quot;FragmentB&quot;, &quot;data2: &quot; + data2);&#10;        }&#10;    }&#10;&#10;    // ...&#10;}&#10;```&#10;&#10;In this example, `FragmentA` creates an instance of `FragmentB` and sets the data using `setArguments()`. Then, it replaces or adds `FragmentB` to the activity's fragment container.&#10;&#10;In `FragmentB`, the data is retrieved from the `Bundle` using `getArguments()` in the `onCreate()` method.&#10;&#10;Note that you can also use the `newInstance()` factory method to create a new instance of the fragment and pass the data through the method parameters. This approach is often preferred over using the default constructor and `setArguments()` method.&#10;&#10;```java&#10;public static FragmentB newInstance(String data1, int data2) {&#10;    FragmentB fragment = new FragmentB();&#10;    Bundle args = new Bundle();&#10;    args.putString(ARG_PARAM1, data1);&#10;    args.putInt(ARG_PARAM2, data2);&#10;    fragment.setArguments(args);&#10;    return fragment;&#10;}&#10;```&#10;&#10;Then, in `FragmentA`, you would call `FragmentB.newInstance(data1, data2)` instead of creating a new instance directly." />
+                    </message>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="can i use Bundel to send a class from fragment to another" />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                      <text value="Yes, you can use a `Bundle` to pass a class object from one fragment to another. However, the class you want to pass must implement the `Parcelable` or `Serializable` interface. These interfaces allow objects to be converted into a format that can be stored in a `Bundle` and reconstructed later.&#10;&#10;Here's an example of how you can pass a custom class object using a `Bundle`:&#10;&#10;1. Create a custom class that implements the `Parcelable` interface (or `Serializable` if you prefer):&#10;&#10;```java&#10;public class MyData implements Parcelable {&#10;    private String name;&#10;    private int age;&#10;&#10;    // Constructor, getters, setters, and other methods&#10;&#10;    // Implement the Parcelable interface methods&#10;    // (e.g., describeContents(), writeToParcel(), and a CREATOR static field)&#10;    // ...&#10;}&#10;```&#10;&#10;2. In the sending fragment (`FragmentA`), create an instance of your custom class and put it into a `Bundle`:&#10;&#10;```java&#10;public class FragmentA extends Fragment {&#10;    // ...&#10;&#10;    private void openFragmentB() {&#10;        FragmentB fragmentB = new FragmentB();&#10;&#10;        // Create an instance of your custom class&#10;        MyData myData = new MyData(&quot;John Doe&quot;, 30);&#10;&#10;        // Create a Bundle object&#10;        Bundle bundle = new Bundle();&#10;&#10;        // Put the custom class object into the Bundle&#10;        bundle.putParcelable(&quot;myData&quot;, myData);&#10;&#10;        // Set the Bundle as arguments for the fragment&#10;        fragmentB.setArguments(bundle);&#10;&#10;        // Replace or add the fragment to your activity&#10;        getParentFragmentManager().beginTransaction()&#10;                .replace(R.id.fragment_container, fragmentB)&#10;                .addToBackStack(null)&#10;                .commit();&#10;    }&#10;&#10;    // ...&#10;}&#10;```&#10;&#10;3. In the receiving fragment (`FragmentB`), retrieve the custom class object from the `Bundle` using `getArguments()`:&#10;&#10;```java&#10;public class FragmentB extends Fragment {&#10;    private static final String ARG_MY_DATA = &quot;myData&quot;;&#10;&#10;    private MyData myData;&#10;&#10;    @Override&#10;    public void onCreate(@Nullable Bundle savedInstanceState) {&#10;        super.onCreate(savedInstanceState);&#10;&#10;        // Get the Bundle from the arguments&#10;        Bundle bundle = getArguments();&#10;&#10;        // Check if the Bundle is not null&#10;        if (bundle != null) {&#10;            // Extract the custom class object from the Bundle&#10;            myData = bundle.getParcelable(ARG_MY_DATA);&#10;&#10;            // Use the custom class object&#10;            if (myData != null) {&#10;                Log.d(&quot;FragmentB&quot;, &quot;Name: &quot; + myData.getName());&#10;                Log.d(&quot;FragmentB&quot;, &quot;Age: &quot; + myData.getAge());&#10;            }&#10;        }&#10;    }&#10;&#10;    // ...&#10;}&#10;```&#10;&#10;In this example, `FragmentA` creates an instance of the `MyData` class and puts it into a `Bundle` using `putParcelable()`. Then, it sets the `Bundle` as arguments for `FragmentB`.&#10;&#10;In `FragmentB`, the `MyData` object is retrieved from the `Bundle` using `getParcelable()` in the `onCreate()` method.&#10;&#10;Note that if your custom class implements the `Serializable` interface instead of `Parcelable`, you would use `putSerializable()` and `getSerializable()` methods instead of `putParcelable()` and `getParcelable()`, respectively." />
+                    </message>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="how to put a pin on line in the code" />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                      <text value="To put a pin (or bookmark) on a specific line in the code, you can use the source code editor's built-in bookmark functionality. Most modern code editors and IDEs (Integrated Development Environments) provide this feature to help developers quickly navigate and mark important lines or sections of code.&#10;&#10;Here are the steps to put a pin or bookmark on a line in the code:&#10;&#10;1. **IntelliJ IDEA / Android Studio**:&#10;   - Navigate to the line of code where you want to put a bookmark.&#10;   - Press `F11` on Windows/Linux or `Command + F3` on macOS, or right-click on the line and select `Toggle Bookmark`.&#10;   - A blue bookmark icon will appear in the gutter (left margin) of the editor.&#10;&#10;2. **Visual Studio Code**:&#10;   - Navigate to the line of code where you want to put a bookmark.&#10;   - Press `Ctrl + Alt + K` on Windows/Linux or `Command + Option + K` on macOS, or click on the gutter (left margin) next to the line.&#10;   - A blue bookmark icon will appear in the gutter.&#10;&#10;3. **Sublime Text**:&#10;   - Navigate to the line of code where you want to put a bookmark.&#10;   - Press `Ctrl + F2` on Windows/Linux or `Command + F2` on macOS.&#10;   - A bookmark icon will appear in the gutter (left margin) of the editor.&#10;&#10;4. **Atom**:&#10;   - Navigate to the line of code where you want to put a bookmark.&#10;   - Press `Ctrl + F2` on Windows/Linux or `Command + F2` on macOS.&#10;   - A bookmark icon will appear in the gutter (left margin) of the editor.&#10;&#10;5. **Vim**:&#10;   - Navigate to the line of code where you want to put a bookmark.&#10;   - Press `m` followed by a letter (e.g., `ma` to set a bookmark named `a`).&#10;   - To navigate to the bookmarked line, press `'` followed by the letter you used (e.g., `'a` to go to the bookmark named `a`).&#10;&#10;Once you've set a bookmark or pin on a line, you can quickly navigate back to that line using the editor's bookmark navigation features. Most editors provide a way to list all bookmarks and jump between them.&#10;&#10;Bookmarks are useful for marking important lines of code, such as entry points, critical sections, or places where you need to revisit or make changes later. They can help you stay organized and efficient when working with large codebases." />
+                    </message>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="can the bundel get the argument as a class" />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                      <text value="Yes, a `Bundle` can get an argument as a class object, but the class must implement either the `Parcelable` or `Serializable` interface. These interfaces allow objects to be converted into a format that can be stored in a `Bundle` and reconstructed later.&#10;&#10;Here's an example of how you can pass a custom class object as an argument using a `Bundle`:&#10;&#10;1. Create a custom class that implements the `Parcelable` interface (or `Serializable` if you prefer):&#10;&#10;```java&#10;public class MyData implements Parcelable {&#10;    private String name;&#10;    private int age;&#10;&#10;    // Constructor, getters, setters, and other methods&#10;&#10;    // Implement the Parcelable interface methods&#10;    // (e.g., describeContents(), writeToParcel(), and a CREATOR static field)&#10;    // ...&#10;}&#10;```&#10;&#10;2. In the fragment where you want to pass the custom class object as an argument, create an instance of your custom class and put it into a `Bundle`:&#10;&#10;```java&#10;public class MyFragment extends Fragment {&#10;    private static final String ARG_MY_DATA = &quot;myData&quot;;&#10;&#10;    public static MyFragment newInstance(MyData myData) {&#10;        MyFragment fragment = new MyFragment();&#10;        Bundle args = new Bundle();&#10;        args.putParcelable(ARG_MY_DATA, myData);&#10;        fragment.setArguments(args);&#10;        return fragment;&#10;    }&#10;&#10;    @Override&#10;    public void onCreate(@Nullable Bundle savedInstanceState) {&#10;        super.onCreate(savedInstanceState);&#10;&#10;        // Get the Bundle from the arguments&#10;        Bundle bundle = getArguments();&#10;&#10;        // Check if the Bundle is not null&#10;        if (bundle != null) {&#10;            // Extract the custom class object from the Bundle&#10;            MyData myData = bundle.getParcelable(ARG_MY_DATA);&#10;&#10;            // Use the custom class object&#10;            if (myData != null) {&#10;                Log.d(&quot;MyFragment&quot;, &quot;Name: &quot; + myData.getName());&#10;                Log.d(&quot;MyFragment&quot;, &quot;Age: &quot; + myData.getAge());&#10;            }&#10;        }&#10;    }&#10;&#10;    // ...&#10;}&#10;```&#10;&#10;In this example, the `newInstance()` method is used to create a new instance of `MyFragment` and pass the `MyData` object as an argument. The `MyData` object is put into a `Bundle` using `putParcelable()`, and the `Bundle` is set as arguments for the fragment using `setArguments()`.&#10;&#10;In the `onCreate()` method of `MyFragment`, the `MyData` object is retrieved from the `Bundle` using `getParcelable()`.&#10;&#10;Note that if your custom class implements the `Serializable` interface instead of `Parcelable`, you would use `putSerializable()` and `getSerializable()` methods instead of `putParcelable()` and `getParcelable()`, respectively.&#10;&#10;By using a `Bundle` to pass a custom class object as an argument, you can effectively share data between fragments or activities in your Android application." />
+                    </message>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="and how to recive the argument values" />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                      <text value="To receive the argument values passed through a `Bundle` in a fragment, you can use the `getArguments()` method in the fragment's lifecycle methods, such as `onCreate()` or `onCreateView()`. Here's an example of how to do it:&#10;&#10;Suppose you have a custom class `MyData` that implements `Parcelable` or `Serializable`, and you're passing an instance of this class as an argument to a fragment using a `Bundle`.&#10;&#10;In the fragment where you want to receive the argument values:&#10;&#10;```java&#10;public class MyFragment extends Fragment {&#10;    private static final String ARG_MY_DATA = &quot;myData&quot;;&#10;&#10;    private MyData myData;&#10;&#10;    public static MyFragment newInstance(MyData data) {&#10;        MyFragment fragment = new MyFragment();&#10;        Bundle args = new Bundle();&#10;        args.putParcelable(ARG_MY_DATA, data);&#10;        fragment.setArguments(args);&#10;        return fragment;&#10;    }&#10;&#10;    @Override&#10;    public void onCreate(@Nullable Bundle savedInstanceState) {&#10;        super.onCreate(savedInstanceState);&#10;&#10;        // Get the Bundle from the arguments&#10;        Bundle bundle = getArguments();&#10;&#10;        // Check if the Bundle is not null&#10;        if (bundle != null) {&#10;            // Extract the custom class object from the Bundle&#10;            myData = bundle.getParcelable(ARG_MY_DATA);&#10;        }&#10;    }&#10;&#10;    @Nullable&#10;    @Override&#10;    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {&#10;        View view = inflater.inflate(R.layout.fragment_my, container, false);&#10;&#10;        // Use the myData object here&#10;        if (myData != null) {&#10;            // Access the properties of myData&#10;            String name = myData.getName();&#10;            int age = myData.getAge();&#10;&#10;            // Update the UI or perform other operations with the data&#10;            TextView nameTextView = view.findViewById(R.id.nameTextView);&#10;            nameTextView.setText(name);&#10;&#10;            TextView ageTextView = view.findViewById(R.id.ageTextView);&#10;            ageTextView.setText(String.valueOf(age));&#10;        }&#10;&#10;        return view;&#10;    }&#10;}&#10;```&#10;&#10;In this example:&#10;&#10;1. The `newInstance()` method is used to create a new instance of `MyFragment` and pass the `MyData` object as an argument using a `Bundle`.&#10;2. In the `onCreate()` method, the `Bundle` is retrieved using `getArguments()`, and the `MyData` object is extracted from the `Bundle` using `getParcelable()` (or `getSerializable()` if your class implements `Serializable`).&#10;3. In the `onCreateView()` method, you can access the properties of the `MyData` object and use them to update the UI or perform other operations.&#10;&#10;Note that you can also retrieve the argument values in other lifecycle methods, such as `onViewCreated()` or `onActivityCreated()`, depending on your use case and when you need to access the data.&#10;&#10;By following this approach, you can effectively receive and use the argument values passed through a `Bundle` in your fragment." />
+                    </message>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="how to insert the bundle values to a class" />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                      <text value="To insert the values from a `Bundle` into a class object, you can create a constructor or setter methods in your class that accept the values from the `Bundle`. Here's an example:&#10;&#10;Suppose you have a custom class `MyData` that you want to populate with values from a `Bundle`:&#10;&#10;```java&#10;public class MyData {&#10;    private String name;&#10;    private int age;&#10;&#10;    // Constructor&#10;    public MyData(String name, int age) {&#10;        this.name = name;&#10;        this.age = age;&#10;    }&#10;&#10;    // Getters and setters&#10;    public String getName() {&#10;        return name;&#10;    }&#10;&#10;    public void setName(String name) {&#10;        this.name = name;&#10;    }&#10;&#10;    public int getAge() {&#10;        return age;&#10;    }&#10;&#10;    public void setAge(int age) {&#10;        this.age = age;&#10;    }&#10;}&#10;```&#10;&#10;In your fragment, you can retrieve the values from the `Bundle` and create an instance of `MyData` using the constructor or setter methods:&#10;&#10;```java&#10;public class MyFragment extends Fragment {&#10;    private static final String ARG_NAME = &quot;name&quot;;&#10;    private static final String ARG_AGE = &quot;age&quot;;&#10;&#10;    private MyData myData;&#10;&#10;    @Override&#10;    public void onCreate(@Nullable Bundle savedInstanceState) {&#10;        super.onCreate(savedInstanceState);&#10;&#10;        // Get the Bundle from the arguments&#10;        Bundle bundle = getArguments();&#10;&#10;        // Check if the Bundle is not null&#10;        if (bundle != null) {&#10;            // Extract the values from the Bundle&#10;            String name = bundle.getString(ARG_NAME);&#10;            int age = bundle.getInt(ARG_AGE);&#10;&#10;            // Create an instance of MyData using the constructor&#10;            myData = new MyData(name, age);&#10;&#10;            // Or, create an instance and set the values using setters&#10;            // myData = new MyData();&#10;            // myData.setName(name);&#10;            // myData.setAge(age);&#10;        }&#10;    }&#10;&#10;    // ...&#10;}&#10;```&#10;&#10;In this example:&#10;&#10;1. The `MyData` class has a constructor that accepts the `name` and `age` values, as well as getter and setter methods.&#10;2. In the `onCreate()` method of the fragment, the values are extracted from the `Bundle` using `getString()` and `getInt()`.&#10;3. An instance of `MyData` is created using the constructor, passing the values from the `Bundle`: `myData = new MyData(name, age);`.&#10;4. Alternatively, you can create an instance of `MyData` using the default constructor and set the values using the setter methods: `myData.setName(name); myData.setAge(age);`.&#10;&#10;After creating the `MyData` object, you can use it in your fragment or pass it to other classes or fragments as needed.&#10;&#10;By following this approach, you can easily populate your custom class objects with values from a `Bundle`, making it convenient to pass data between fragments or activities in your Android application." />
+                    </message>
+                  </list>
+                </messages>
+                <updatedAt value="2024-04-29T17:28:32.9625964" />
+              </chat>
+              <chat>
+                <accountId value="VXNlcjozMDIwNTE=" />
+                <internalId value="f1b4e501-e670-497e-9082-7fa518be5839" />
+                <llm>
+                  <llm>
+                    <model value="anthropic/claude-3-sonnet-20240229" />
+                    <provider value="Anthropic" />
+                    <title value="Claude 3 Sonnet" />
+                  </llm>
+                </llm>
+              </chat>
+              <chat>
+                <accountId value="VXNlcjozMDIwNTE=" />
+                <internalId value="f2d4124b-e730-4df9-8e01-f1e67c1bfcbf" />
+                <llm>
+                  <llm>
+                    <model value="anthropic/claude-3-sonnet-20240229" />
+                    <provider value="Anthropic" />
+                    <title value="Claude 3 Sonnet" />
+                  </llm>
+                </llm>
+              </chat>
+              <chat>
+                <accountId value="VXNlcjozMDIwNTE=" />
+                <internalId value="00660fc7-f83d-46ea-aedc-3b944db67fd8" />
+                <llm>
+                  <llm>
+                    <model value="anthropic/claude-3-sonnet-20240229" />
+                    <provider value="Anthropic" />
+                    <title value="Claude 3 Sonnet" />
+                  </llm>
+                </llm>
+              </chat>
+              <chat>
+                <accountId value="VXNlcjozMDIwNTE=" />
+                <internalId value="a67e5b96-3597-470b-8176-a87846569cb9" />
+              </chat>
+              <chat>
+                <accountId value="VXNlcjozMDIwNTE=" />
+                <internalId value="d59b1c36-a4ad-4756-8d6f-d728127f8d9d" />
+                <messages>
+                  <list>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="what is data piomt" />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                    </message>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="what is datapoint" />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                      <text value="&lt;html&gt;&lt;b&gt; Cody encountered an error when processing your message:&lt;/b&gt;&lt;br&gt;&lt;div marginwidth=10&quot; marginheight=&quot;10&quot;&gt;&amp;#9888;  Invalid access token.&#10;&lt;/div&gt;&lt;div&gt;&lt;/div&gt;&lt;/html&gt;" />
+                    </message>
+                  </list>
+                </messages>
+                <updatedAt value="2024-05-16T19:01:35.8596135" />
+              </chat>
+              <chat>
+                <internalId value="571c2bc1-492f-45cb-a7a7-eca553532e95" />
+                <messages>
+                  <list>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="how to set a parigraph as a note in java" />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                      <text value="&lt;html&gt;&lt;b&gt; Cody encountered an error when processing your message:&lt;/b&gt;&lt;br&gt;&lt;div marginwidth=10&quot; marginheight=&quot;10&quot;&gt;&amp;#9888;  org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Request chat/new failed with message: No chat model found in server-provided config&lt;/div&gt;&lt;div&gt;If the problem persists, please &lt;a href=&quot;https://github.com/sourcegraph/jetbrains/issues/new?template=bug_report.yml&amp;labels=bug,team/jetbrains&amp;projects=sourcegraph/381&amp;title=bug%3A+java.util.concurrent.ExecutionException%3A+org.eclipse.lsp4j.jsonrpc.ResponseErrorException%3A+Request+chat%2Fnew+failed+with+messa...&amp;version=IDE+version%3A+%60%60%60AI-233.14808.21.2331.11709847%60%60%60&amp;logs=Stacktrace%3A%0A%60%60%60text%0Ajava.util.concurrent.ExecutionException%3A+org.eclipse.lsp4j.jsonrpc.ResponseErrorException%3A+Request+chat%2Fnew+failed+with+message%3A+No+chat+model+found+in+server-provided+config%0D%0A%09at+java.base%2Fjava.util.concurrent.CompletableFuture.reportGet%28CompletableFuture.java%3A396%29%0D%0A%09at+java.base%2Fjava.util.concurrent.CompletableFuture.get%28CompletableFuture.java%3A2073%29%0D%0A%09at+com.sourcegraph.cody.chat.AgentChatSession.submitMessageToAgent%24lambda%241%28AgentChatSession.kt%3A109%29%0D%0A%09at+com.sourcegraph.cody.agent.CodyAgentService%24Companion%24withAgent%242%241%24task%241.invokeSuspend%28CodyAgentService.kt%3A185%29%0D%0A%09at+com.sourcegraph.cody.agent.CodyAgentService%24Companion%24withAgent%242%241%24task%241.invoke%28CodyAgentService.kt%29%0D%0A%09at+com.sourcegraph.cody.agent.CodyAgentService%24Companion%24withAgent%242%241%24task%241.invoke%28CodyAgentService.kt%29%0D%0A%09at+com.sourcegraph.cody.agent.CodyAgentService%24Companion.coWithAgent%28CodyAgentService.kt%3A241%29%0D%0A%09at+com.sourcegraph.cody.agent.CodyAgentService%24Companion%24withAgent%242%241.invokeSuspend%28CodyAgentService.kt%3A190%29%0D%0A%09at+kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith%28ContinuationImpl.kt%3A33%29%0D%0A%09at+kotlinx.coroutines.DispatchedTask.run%28DispatchedTask.kt%3A108%29%0D%0A%09at+kotlinx.coroutines.EventLoopImplBase.processNextEvent%28EventLoop.common.kt%3A280%29%0D%0A%09at+kotlinx.coroutines.BlockingCoroutine.joinBlocking%28Builders.kt%3A85%29%0D%0A%09at+kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking%28Builders.kt%3A59%29%0D%0A%09at+kotlinx.coroutines.BuildersKt.runBlocking%28Unknown+Source%29%0D%0A%09at+kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking%24default%28Builders.kt%3A38%29%0D%0A%09at+kotlinx.coroutines.BuildersKt.runBlocking%24default%28Unknown+Source%29%0D%0A%09at+com.sourcegraph.cody.agent.CodyAgentService%24Companion.withAgent%24lambda%242%28CodyAgentService.kt%3A182%29%0D%0A%09at+com.intellij.openapi.application.impl.ApplicationImpl%242.run%28ApplicationImpl.java%3A249%29%0D%0A%09at+java.base%2Fjava.util.concurrent.Executors%24RunnableAdapter.call%28Executors.java%3A539%29%0D%0A%09at+com.intellij.util.concurrency.ContextCallable.call%28ContextCallable.java%3A32%29%0D%0A%09at+java.base%2Fjava.util.concurrent.FutureTask.run%28FutureTask.java%3A264%29%0D%0A%09at+com.intellij.util.concurrency.ContextRunnable.run%28ContextRunnable.java%3A27%29%0D%0A%09at+java.base%2Fjava.util.concurrent.ThreadPoolExecutor.runWorker%28ThreadPoolExecutor.java%3A1136%29%0D%0A%09at+java.base%2Fjava.util.concurrent.ThreadPoolExecutor%24Worker.run%28ThreadPoolExecutor.java%3A635%29%0D%0A%09at+java.base%2Fjava.util.concurrent.Executors%24PrivilegedThreadFactory%241%241.run%28Executors.java%3A702%29%0D%0A%09at+java.base%2Fjava.util.concurrent.Executors%24PrivilegedThreadFactory%241%241.run%28Executors.java%3A699%29%0D%0A%09at+java.base%2Fjava.security.AccessController.doPrivileged%28AccessController.java%3A399%29%0D%0A%09at+java.base%2Fjava.util.concurrent.Executors%24PrivilegedThreadFactory%241.run%28Executors.java%3A699%29%0D%0A%09at+java.base%2Fjava.lang.Thread.run%28Thread.java%3A840%29%0D%0ACaused+by%3A+org.eclipse.lsp4j.jsonrpc.ResponseErrorException%3A+Request+chat%2Fnew+failed+with+message%3A+No+chat+model+found+in+server-provided+config%0D%0A%09at+org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleResponse%28RemoteEndpoint.java%3A209%29%0D%0A%09at+org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume%28RemoteEndpoint.java%3A193%29%0D%0A%09at+org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage%28StreamMessageProducer.java%3A194%29%0D%0A%09at+org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen%28StreamMessageProducer.java%3A94%29%0D%0A%09at+org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run%28ConcurrentMessageProcessor.java%3A113%29%0D%0A%09at+java.base%2Fjava.util.concurrent.Executors%24RunnableAdapter.call%28Executors.java%3A539%29%0D%0A%09at+java.base%2Fjava.util.concurrent.FutureTask.run%28FutureTask.java%3A264%29%0D%0A%09at+java.base%2Fjava.util.concurrent.ThreadPoolExecutor.runWorker%28ThreadPoolExecutor.java%3A1136%29%0D%0A%09at+java.base%2Fjava.util.concurrent.ThreadPoolExecutor%24Worker.run%28ThreadPoolExecutor.java%3A635%29%0D%0A%09...+1+more%0D%0A%0A%60%60%60%0AAdditional+info%3A+%60%60%60org.eclipse.lsp4j.jsonrpc.ResponseErrorException%3A+Request+chat%2Fnew+failed+with+message%3A+No+chat+model+found+in+server-provided+config%60%60%60&quot;&gt;create a support ticket&lt;/a&gt;.&lt;/div&gt;&lt;/html&gt;" />
+                    </message>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="fix the following code to mach a navigation bar code for fragments" />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                      <text value="&lt;html&gt;&lt;b&gt; Cody encountered an error when processing your message:&lt;/b&gt;&lt;br&gt;&lt;div marginwidth=10&quot; marginheight=&quot;10&quot;&gt;&amp;#9888;  org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Request chat/new failed with message: No chat model found in server-provided config&lt;/div&gt;&lt;div&gt;If the problem persists, please &lt;a href=&quot;https://github.com/sourcegraph/jetbrains/issues/new?template=bug_report.yml&amp;labels=bug,team/jetbrains&amp;projects=sourcegraph/381&amp;title=bug%3A+java.util.concurrent.ExecutionException%3A+org.eclipse.lsp4j.jsonrpc.ResponseErrorException%3A+Request+chat%2Fnew+failed+with+messa...&amp;version=IDE+version%3A+%60%60%60AI-233.14808.21.2331.11709847%60%60%60&amp;logs=Stacktrace%3A%0A%60%60%60text%0Ajava.util.concurrent.ExecutionException%3A+org.eclipse.lsp4j.jsonrpc.ResponseErrorException%3A+Request+chat%2Fnew+failed+with+message%3A+No+chat+model+found+in+server-provided+config%0D%0A%09at+java.base%2Fjava.util.concurrent.CompletableFuture.reportGet%28CompletableFuture.java%3A396%29%0D%0A%09at+java.base%2Fjava.util.concurrent.CompletableFuture.get%28CompletableFuture.java%3A2073%29%0D%0A%09at+com.sourcegraph.cody.chat.AgentChatSession.submitMessageToAgent%24lambda%241%28AgentChatSession.kt%3A109%29%0D%0A%09at+com.sourcegraph.cody.agent.CodyAgentService%24Companion%24withAgent%242%241%24task%241.invokeSuspend%28CodyAgentService.kt%3A185%29%0D%0A%09at+com.sourcegraph.cody.agent.CodyAgentService%24Companion%24withAgent%242%241%24task%241.invoke%28CodyAgentService.kt%29%0D%0A%09at+com.sourcegraph.cody.agent.CodyAgentService%24Companion%24withAgent%242%241%24task%241.invoke%28CodyAgentService.kt%29%0D%0A%09at+com.sourcegraph.cody.agent.CodyAgentService%24Companion.coWithAgent%28CodyAgentService.kt%3A241%29%0D%0A%09at+com.sourcegraph.cody.agent.CodyAgentService%24Companion%24withAgent%242%241.invokeSuspend%28CodyAgentService.kt%3A190%29%0D%0A%09at+kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith%28ContinuationImpl.kt%3A33%29%0D%0A%09at+kotlinx.coroutines.DispatchedTask.run%28DispatchedTask.kt%3A108%29%0D%0A%09at+kotlinx.coroutines.EventLoopImplBase.processNextEvent%28EventLoop.common.kt%3A280%29%0D%0A%09at+kotlinx.coroutines.BlockingCoroutine.joinBlocking%28Builders.kt%3A85%29%0D%0A%09at+kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking%28Builders.kt%3A59%29%0D%0A%09at+kotlinx.coroutines.BuildersKt.runBlocking%28Unknown+Source%29%0D%0A%09at+kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking%24default%28Builders.kt%3A38%29%0D%0A%09at+kotlinx.coroutines.BuildersKt.runBlocking%24default%28Unknown+Source%29%0D%0A%09at+com.sourcegraph.cody.agent.CodyAgentService%24Companion.withAgent%24lambda%242%28CodyAgentService.kt%3A182%29%0D%0A%09at+com.intellij.openapi.application.impl.ApplicationImpl%242.run%28ApplicationImpl.java%3A249%29%0D%0A%09at+java.base%2Fjava.util.concurrent.Executors%24RunnableAdapter.call%28Executors.java%3A539%29%0D%0A%09at+com.intellij.util.concurrency.ContextCallable.call%28ContextCallable.java%3A32%29%0D%0A%09at+java.base%2Fjava.util.concurrent.FutureTask.run%28FutureTask.java%3A264%29%0D%0A%09at+com.intellij.util.concurrency.ContextRunnable.run%28ContextRunnable.java%3A27%29%0D%0A%09at+java.base%2Fjava.util.concurrent.ThreadPoolExecutor.runWorker%28ThreadPoolExecutor.java%3A1136%29%0D%0A%09at+java.base%2Fjava.util.concurrent.ThreadPoolExecutor%24Worker.run%28ThreadPoolExecutor.java%3A635%29%0D%0A%09at+java.base%2Fjava.util.concurrent.Executors%24PrivilegedThreadFactory%241%241.run%28Executors.java%3A702%29%0D%0A%09at+java.base%2Fjava.util.concurrent.Executors%24PrivilegedThreadFactory%241%241.run%28Executors.java%3A699%29%0D%0A%09at+java.base%2Fjava.security.AccessController.doPrivileged%28AccessController.java%3A399%29%0D%0A%09at+java.base%2Fjava.util.concurrent.Executors%24PrivilegedThreadFactory%241.run%28Executors.java%3A699%29%0D%0A%09at+java.base%2Fjava.lang.Thread.run%28Thread.java%3A840%29%0D%0ACaused+by%3A+org.eclipse.lsp4j.jsonrpc.ResponseErrorException%3A+Request+chat%2Fnew+failed+with+message%3A+No+chat+model+found+in+server-provided+config%0D%0A%09at+org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleResponse%28RemoteEndpoint.java%3A209%29%0D%0A%09at+org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume%28RemoteEndpoint.java%3A193%29%0D%0A%09at+org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage%28StreamMessageProducer.java%3A194%29%0D%0A%09at+org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen%28StreamMessageProducer.java%3A94%29%0D%0A%09at+org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run%28ConcurrentMessageProcessor.java%3A113%29%0D%0A%09at+java.base%2Fjava.util.concurrent.Executors%24RunnableAdapter.call%28Executors.java%3A539%29%0D%0A%09at+java.base%2Fjava.util.concurrent.FutureTask.run%28FutureTask.java%3A264%29%0D%0A%09at+java.base%2Fjava.util.concurrent.ThreadPoolExecutor.runWorker%28ThreadPoolExecutor.java%3A1136%29%0D%0A%09at+java.base%2Fjava.util.concurrent.ThreadPoolExecutor%24Worker.run%28ThreadPoolExecutor.java%3A635%29%0D%0A%09...+1+more%0D%0A%0A%60%60%60%0AAdditional+info%3A+%60%60%60org.eclipse.lsp4j.jsonrpc.ResponseErrorException%3A+Request+chat%2Fnew+failed+with+message%3A+No+chat+model+found+in+server-provided+config%60%60%60&quot;&gt;create a support ticket&lt;/a&gt;.&lt;/div&gt;&lt;/html&gt;" />
+                    </message>
+                  </list>
+                </messages>
+                <updatedAt value="2024-05-17T16:06:49.5501213" />
+              </chat>
+              <chat>
+                <internalId value="8fc242bb-b76e-4521-8642-f23b083a3306" />
+                <messages>
+                  <list>
+                    <message>
+                      <speaker value="HUMAN" />
+                      <text value="Generate Test" />
+                    </message>
+                    <message>
+                      <speaker value="ASSISTANT" />
+                    </message>
+                  </list>
+                </messages>
+                <updatedAt value="2024-05-17T16:09:41.570911" />
+              </chat>
+            </list>
+          </chats>
+          <defaultLlm>
+            <llm>
+              <model value="anthropic/claude-3-sonnet-20240229" />
+              <provider value="Anthropic" />
+              <title value="Claude 3 Sonnet" />
+            </llm>
+          </defaultLlm>
+        </AccountData>
+      </list>
+    </accountData>
     <chats>
       <list>
         <chat>

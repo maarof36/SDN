@@ -4,13 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragmnts.BudgetTrackingFragment">
+    tools:context=".Main.BudgetTrackingFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/ik"
-        android:backgroundTint="#7CB342">
+        android:background="@drawable/_d_graphic_wallpaper_with_colorful_grainy_gradients">
 
         <TextView
             android:id="@+id/textView"
@@ -102,14 +101,14 @@
             android:id="@+id/navbarhome"
             android:layout_width="410dp"
             android:layout_height="wrap_content"
-            android:background="@color/black"
-            app:itemIconTint="#00897B"
-            app:itemRippleColor="#00897B"
-            app:itemTextColor="#00897B"
-            app:menu="@menu/bottom_naagation_bar"
+            app:backgroundTint="#20058F"
+            app:itemIconTint="#b8b8b8"
+            app:itemRippleColor="#b8b8b8"
+            app:itemTextColor="#b8b8b8"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:menu="@menu/bottom_naagation_bar" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,13 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".usermngmnt.LoginFragment">
+    tools:context=".UserManagement.LoginFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/ik"
-        android:backgroundTint="#8BC34A">
+        android:background="@drawable/_d_graphic_wallpaper_with_colorful_grainy_gradients">
 
         <Button
             android:id="@+id/btLogin"
@@ -19,20 +18,22 @@
             android:layout_marginStart="160dp"
             android:layout_marginTop="148dp"
             android:layout_marginEnd="160dp"
-            android:layout_marginBottom="100dp"
+            android:layout_marginBottom="300dp"
             android:backgroundTint="#b8b8b8"
             android:text="Login"
-            app:layout_constraintBottom_toTopOf="@+id/SingUpLink"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.333"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etPasswordL" />
+            app:layout_constraintTop_toBottomOf="@+id/etPasswordL"
+            app:layout_constraintVertical_bias="0.0" />
 
         <EditText
             android:id="@+id/etUsernameL"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
-            android:layout_marginTop="175dp"
+            android:layout_marginTop="180dp"
             android:layout_marginEnd="50dp"
             android:backgroundTint="#b8b8b8"
             android:ems="10"
@@ -66,11 +67,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="183dp"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="56dp"
             android:layout_marginEnd="183dp"
             android:text="SignUp"
             android:textColor="#1E88E5"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btLogin" />
 
@@ -88,5 +90,15 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/SingUpLink" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="156dp"
+            android:src="@drawable/icons8_app_192___"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

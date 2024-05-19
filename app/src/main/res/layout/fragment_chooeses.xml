@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragmnts.ChooesesFragment">
+    tools:context=".fragments.ChooeseFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/ik">
+        android:background="@drawable/_d_graphic_wallpaper_with_colorful_grainy_gradients">
 
         <ImageButton
             android:id="@+id/House"

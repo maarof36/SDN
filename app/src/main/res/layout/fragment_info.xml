@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ik"
-    tools:context=".fragmnts.InfoFragment">
+    android:background="@drawable/_d_graphic_wallpaper_with_colorful_grainy_gradients"
+    tools:context=".fragments.InfoFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -17,10 +17,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginTop="30dp"
-            android:backgroundTint="#8BC34A"
+            android:backgroundTint="#b8b8b8"
             android:clickable="true"
             android:src="@drawable/baseline_arrow_back_24"
-            app:backgroundTint="#b8b8b8"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -31,7 +30,6 @@
             android:layout_marginStart="1dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="1dp"
-            android:backgroundTint="#8BC34A"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
