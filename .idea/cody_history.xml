@@ -234,6 +234,12 @@
                 </messages>
                 <updatedAt value="2024-05-17T16:09:41.570911" />
               </chat>
+              <chat>
+                <internalId value="d2b5ced5-5cdb-4c4e-b806-b89973ad9f50" />
+              </chat>
+              <chat>
+                <internalId value="5bbd3d20-6163-493c-bb76-493c0ddeddaa" />
+              </chat>
             </list>
           </chats>
           <defaultLlm>
