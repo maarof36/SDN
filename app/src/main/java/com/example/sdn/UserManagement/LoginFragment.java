@@ -104,6 +104,7 @@ public class LoginFragment extends Fragment {
 
         });
         btLogin = getView().findViewById(R.id.btLogin);
+
         btLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

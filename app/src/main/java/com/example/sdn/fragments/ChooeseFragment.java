@@ -91,7 +91,7 @@ public class ChooeseFragment extends Fragment {
             ex1 = ex.getParcelable("expense");}
         h = getView().findViewById(R.id.House);
         c = getView().findViewById(R.id.Car);
-        c2 = getView().findViewById(R.id.Car);
+        c2 = getView().findViewById(R.id.Communications);
         c3 = getView().findViewById(R.id.Clothes);
         f = getView().findViewById(R.id.Fixing);
         p1 = getView().findViewById(R.id.Phone);
