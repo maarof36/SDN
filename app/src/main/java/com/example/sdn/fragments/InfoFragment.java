@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -12,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.example.sdn.Main.BudgetTrackingFragment;
@@ -22,6 +24,7 @@ import com.example.sdn.Main.ExpenseAdapter;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
@@ -39,6 +42,7 @@ public class InfoFragment extends Fragment {
 
     private ExpenseAdapter myAdapter;
     private ArrayList<Expense2> ex;
+    private FrameLayout frameLayout;
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -92,10 +96,13 @@ public class InfoFragment extends Fragment {
     public void onStart() {
         super.onStart();
         call();
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(callback);
+        itemTouchHelper.attachToRecyclerView(recyclerView);
     }
 
     private void call() {
         recyclerView = getView().findViewById(R.id.pList);
+        frameLayout = getView().findViewById(R.id.frameLayout);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         fbs = FirebaseServices.getInstance();
@@ -164,5 +171,21 @@ public class InfoFragment extends Fragment {
 
         return ex;
     }
+    ItemTouchHelper.SimpleCallback callback = new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT |ItemTouchHelper.RIGHT) {
+        @Override
+        public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+            return false;
+        }
+
+        @Override
+        public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+            Snackbar snackbar = Snackbar.make(frameLayout,"item deletd!", Snackbar.LENGTH_LONG);
+            snackbar.show();
+
+            ex.remove(viewHolder.getAdapterPosition());
+            myAdapter.notifyDataSetChanged();
+
+        }
+    };
 }
 
