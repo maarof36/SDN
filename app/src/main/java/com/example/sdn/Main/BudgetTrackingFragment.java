@@ -24,8 +24,10 @@ import com.example.sdn.fragments.barFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -129,7 +131,7 @@ public class BudgetTrackingFragment extends Fragment {
                     }
 
                     ex1.setPrice(Double.parseDouble(spent.getText().toString()));
-                    Date currentTime = Calendar.getInstance().getTime();
+                String currentTime = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
                     ex1.setTime(currentTime.toString());
                     gotoChoose(ex1);
             }

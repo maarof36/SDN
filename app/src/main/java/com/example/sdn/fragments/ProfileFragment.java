@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -40,7 +41,7 @@ public class ProfileFragment extends Fragment {
    private Utils utils;
     private static final int GALLERY_REQUEST_CODE = 123;
     private FirebaseServices fbs;
-    private TextView UserName, Email,Addres;
+    private EditText UserName, Email,Addres;
     private boolean flagAlreadyFilled = false;
 
 
