@@ -93,10 +93,10 @@ public class BudgetTrackingFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        miniicon = getActivity().findViewById(R.id.navbarhome);
-        if(miniicon.getSelectedItemId()==R.id.home) getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,new BudgetTrackingFragment()).commit();
-        miniicon.setOnNavigationItemSelectedListener(item -> {
-            switch (item.getItemId()) {
+      //  miniicon = getActivity().findViewById(R.id.navbarhome);
+        //if(miniicon.getSelectedItemId()==R.id.home) getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,new BudgetTrackingFragment()).commit();
+        //miniicon.setOnNavigationItemSelectedListener(item -> {
+          //  switch (item.getItemId()) {
                 //case R.id.home:
                   //  getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,new BudgetTrackingFragment()).commit();
                   //  return true;
@@ -106,10 +106,10 @@ public class BudgetTrackingFragment extends Fragment {
                 //case R.id.profile:
                   //  getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new ProfileFragment()).commit();
                   //  return true;
-                default:
-                    return false;
-            }
-        });
+            //    default:
+          //          return false;
+        //   }
+       // });
         spent = getView().findViewById(R.id.S);
         goBt = getView().findViewById(R.id.Go);
         gbtn = getView().findViewById(R.id.grfBtn);

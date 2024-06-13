@@ -186,6 +186,7 @@ public class ProfileFragment extends Fragment {
     private void init() {
         fbs= FirebaseServices.getInstance();
         utils = Utils.getInstance();
+        fillUserData();
     }
     private void fillUserData() {
         if (flagAlreadyFilled)

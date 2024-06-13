@@ -97,19 +97,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/navbarhome"
-            android:layout_width="410dp"
-            android:layout_height="wrap_content"
-            app:backgroundTint="#20058F"
-            app:itemIconTint="#b8b8b8"
-            app:itemRippleColor="#b8b8b8"
-            app:itemTextColor="#b8b8b8"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:menu="@menu/bottom_naagation_bar" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
