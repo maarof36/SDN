@@ -139,7 +139,7 @@ public class SignupFragment extends Fragment {
 //                String imageURL = "";
 //                    imageURL = selectedImageUri.toString();
 //                }
-                User user = new User(username, email, addres);
+                User user = new User(username, email, addres,"",null);
 
 
                 fbs.getAuth().createUserWithEmailAndPassword(email, password)
