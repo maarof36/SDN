@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.sdn.data.Expense2;
 import com.example.sdn.data.Utils;
 import com.example.sdn.data.FirebaseServices;
 import com.example.sdn.R;
@@ -25,6 +26,8 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.firestore.DocumentReference;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -139,7 +142,7 @@ public class SignupFragment extends Fragment {
 //                String imageURL = "";
 //                    imageURL = selectedImageUri.toString();
 //                }
-                User user = new User(username, email, addres,"",null);
+                User user = new User(username, email, addres,"", (ArrayList<Expense2>) null);
 
 
                 fbs.getAuth().createUserWithEmailAndPassword(email, password)

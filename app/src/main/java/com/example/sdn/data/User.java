@@ -7,12 +7,12 @@ public class User {
     private String email;
     private String address;
     private String photo;
-    private ArrayList<Expense> expenses;
+    private Expense2[] expenses;
 
-    public User(String username, String email, String addres) {
+    public User(String username, String email, String addres, String photo, ArrayList<Expense2> expenses) {
     }
 
-    public User(String username, String phone, String address, String photo, ArrayList<Expense> expenses) {
+    public User(String username, String phone, String address, String photo, Expense2[] expenses) {
 
         this.username = username;
         this.email = email;
@@ -53,11 +53,11 @@ public class User {
         this.photo = photo;
     }
 
-    public ArrayList<Expense> getExpenses() {
+    public ArrayList<Expense2> getExpenses() {
         return expenses;
     }
 
-    public void setExpenses(ArrayList<Expense> expenses) {
+    public void setExpenses(String[] expenses) {
         this.expenses = expenses;
     }
 
