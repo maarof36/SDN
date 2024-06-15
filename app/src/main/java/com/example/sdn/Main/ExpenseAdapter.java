@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -12,11 +11,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sdn.R;
-import com.example.sdn.data.Expense;
 import com.example.sdn.data.Expense2;
 import com.example.sdn.data.FirebaseServices;
-import com.example.sdn.data.User;
-import com.squareup.picasso.Picasso;
+import com.example.sdn.data.User1;
 
 import java.util.ArrayList;
 
@@ -43,7 +40,7 @@ public class ExpenseAdapter extends RecyclerView.Adapter<ExpenseAdapter.MyViewHo
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder,int position){
         Expense2 expense= xList.get(position);
-        User u = fbs.getCurrentUser();
+        User1 u = fbs.getCurrentUser();
         holder.Price.setText(expense.getPrice()+"₪");
         holder.Type.setText(expense.getType());
         holder.Time.setText(expense.getTime());

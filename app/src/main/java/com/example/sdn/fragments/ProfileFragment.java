@@ -16,14 +16,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.sdn.Main.BudgetTrackingFragment;
 import com.example.sdn.R;
 import com.example.sdn.data.Utils;
 import com.example.sdn.data.FirebaseServices;
-import com.example.sdn.data.User;
+import com.example.sdn.data.User1;
 import com.example.sdn.UserManagement.LoginFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.squareup.picasso.Picasso;
@@ -97,6 +96,15 @@ public class ProfileFragment extends Fragment {
     public void onStart() {
         super.onStart();
         init();
+
+        //fillUserData();
+        //flagAlreadyFilled = true;
+
+    }
+
+
+
+    private void init() {
         fbs = FirebaseServices.getInstance();
         btnUpdate =getView().findViewById(R.id.Upbutton);
         LogOutbtn =getView().findViewById(R.id.logoutBtn);
@@ -105,7 +113,7 @@ public class ProfileFragment extends Fragment {
         Addres=getView().findViewById(R.id.address);
 
         if(fbs.getCurrentUser()!=null){
-            UserName.setText(fbs.getCurrentUser().getUsername());
+            UserName.setText(fbs.getAuth().getCurrentUser().getEmail());
             Email.setText(fbs.getCurrentUser().getEmail());
             Addres.setText(fbs.getCurrentUser().getAddress());
         }
@@ -121,7 +129,7 @@ public class ProfileFragment extends Fragment {
                     return;
                 }
 
-                User current = fbs.getCurrentUser();
+                User1 current = fbs.getCurrentUser();
                 if (current != null)
                 {
                     if (!current.getUsername().equals(username)  ||
@@ -129,9 +137,9 @@ public class ProfileFragment extends Fragment {
                             !current.getPhoto().equals(fbs.getSelectedImageURL().toString()))
                     {
                         if (fbs.getSelectedImageURL() != null)
-                            current = new User(username,fbs.getAuth().getCurrentUser().getEmail().toString(),address, fbs.getSelectedImageURL().toString(), current.getExpenses());
+                            current = new User1(username,fbs.getAuth().getCurrentUser().getEmail().toString(),address, fbs.getSelectedImageURL().toString(), current.getExpenses());
                         else
-                            current = new User(username, fbs.getAuth().getCurrentUser().getEmail(), address, "", current.getExpenses());
+                            current = new User1(username, fbs.getAuth().getCurrentUser().getEmail(), address, "", current.getExpenses());
 
                         fbs.updateUser(current);
                         utils.showMessageDialog(getActivity(), "Data updated succesfully!");
@@ -176,22 +184,13 @@ public class ProfileFragment extends Fragment {
                 openGallery();
             }
         });
-        //fillUserData();
-        //flagAlreadyFilled = true;
-
-    }
-
-
-
-    private void init() {
-        fbs= FirebaseServices.getInstance();
         utils = Utils.getInstance();
         fillUserData();
     }
     private void fillUserData() {
         if (flagAlreadyFilled)
             return;
-        User current = fbs.getCurrentUser();
+        User1 current = fbs.getCurrentUser();
         if (current != null)
         {
             UserName.setText(current.getUsername());

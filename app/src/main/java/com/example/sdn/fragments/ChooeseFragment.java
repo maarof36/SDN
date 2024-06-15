@@ -18,7 +18,6 @@ import com.example.sdn.R;
 import com.example.sdn.data.Expense;
 import com.example.sdn.data.Expense2;
 import com.example.sdn.data.FirebaseServices;
-import com.example.sdn.data.User;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -164,19 +163,25 @@ public class ChooeseFragment extends Fragment {
         time=ex1.getTime().toString();
 
         expense2 = new Expense2(price1, type, time);
-        User current = fbs.getCurrentUser();
+      /*  User current = fbs.getCurrentUser();
         ArrayList<Expense2> arr ;
-        arr = current.getExpenses();
-        String[] newEx = new String[arr.size() +1];
-        int i = 0;
-        while (i< arr.size())
-        {
-            newEx[i]= String.valueOf(arr.get(i));
-            i++;
+        if(current.getExpenses()==null){
+            String[] newEx = new String[1];
+            newEx(0) = expense2;
+            current.setExpenses(newEx);
         }
-        newEx[i]= String.valueOf(expense2);
-        current.setExpenses(newEx);
-
+        if(current.getExpenses()!=null) {
+            arr = current.getExpenses();
+            String[] newEx = new String[arr.size() + 1];
+            int i = 0;
+            while (i < arr.size()) {
+                newEx[i] = String.valueOf(arr.get(i));
+                i++;
+            }
+            newEx(i) = expense2;
+            current.setExpenses(newEx);
+        }
+*/
         fbs.getFire().collection("expenses").add(expense2)
                     .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                         @Override
@@ -193,8 +198,6 @@ public class ChooeseFragment extends Fragment {
                             gotoBudget();
                         }
                     });
-
-
     }
 
     private void gotoList() {

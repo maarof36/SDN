@@ -18,7 +18,7 @@ import com.example.sdn.data.Expense2;
 import com.example.sdn.data.Utils;
 import com.example.sdn.data.FirebaseServices;
 import com.example.sdn.R;
-import com.example.sdn.data.User;
+import com.example.sdn.data.User1;
 import com.example.sdn.Main.BudgetTrackingFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -142,7 +142,7 @@ public class SignupFragment extends Fragment {
 //                String imageURL = "";
 //                    imageURL = selectedImageUri.toString();
 //                }
-                User user = new User(username, email, addres,"", (ArrayList<Expense2>) null);
+                User1 user = new User1(username, email, addres,"", (ArrayList<Expense2>) null);
 
 
                 fbs.getAuth().createUserWithEmailAndPassword(email, password)

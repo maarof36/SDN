@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Expense2 implements Parcelable {
+
     private String Price;
     private String Type;
     private String Time;

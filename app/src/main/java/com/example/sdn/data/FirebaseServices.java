@@ -13,7 +13,7 @@ import com.google.firebase.storage.FirebaseStorage;
 public class FirebaseServices {
      private static FirebaseServices instance;
     private Uri selectedImageURL;
-    private User currentUser;
+    private User1 currentUser;
      private FirebaseAuth auth;
      private FirebaseFirestore fire;
      private FirebaseStorage storage;
@@ -57,16 +57,16 @@ public class FirebaseServices {
     public void setUserChangeFlag(boolean userChangeFlag) {
         this.userChangeFlag = userChangeFlag;
     }
-     public User getCurrentUser()
+     public User1 getCurrentUser()
     {
         return this.currentUser;
     }
 
-    public void setCurrentUser(User currentUser) {
+    public void setCurrentUser(User1 currentUser) {
         this.currentUser = currentUser;
     }
 
-    public boolean updateUser(User user)
+    public boolean updateUser(User1 user)
     {
         final boolean[] flag = {false};
         // Reference to the collection
